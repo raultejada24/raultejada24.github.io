@@ -1,0 +1,17 @@
+{
+  "name": "raultejada24.github.io",
+  "version": "1.0.0",
+  "description": "Bienvenido a mi portafolio interactivo: un sitio moderno, lleno de animaciones suaves y contenido dinámico que revela mis proyectos, habilidades y mi pasión por la tecnología.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mustache-express": "^1.3.2"
+  }
+}

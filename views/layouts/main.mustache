@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}} – Raúl Tejada</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
+
+  <!-- Fuentes e íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+</head>
+<body>
+
+  {{> header}}
+
+  <main class="container my-5">
+    {{{body}}}
+  </main>
+
+  {{> footer}}
+
+  <!-- Bootstrap JS y Popper -->
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Tu JS -->
+  <script src="/js/main.js"></script>
+  <script src="/js/animations.js"></script>
+</body>
+</html>
