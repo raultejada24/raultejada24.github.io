@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 
@@ -22,15 +23,21 @@ app.use((req, res, next) => {
 // RUTA DE TEST
 app.get('/test', (req, res) => res.send('<h1 style="color: green;">✅ Test OK</h1>'));
 
-// FUNCIÓN PARA RENDERIZAR CON LAYOUT Y PARTIALS
-const renderWithLayout = (body, title) => ({
-  title,
-  partials: {
+// FUNCIÓN PARA RENDERIZAR CON LAYOUT Y BODY COMO STRING
+const mustache = require('mustache');
+function renderWithLayout(view, title, data = {}) {
+  const viewPath = path.join(__dirname, 'views', `${view}.mustache`);
+  const viewContent = fs.readFileSync(viewPath, 'utf8');
+  const body = mustache.render(viewContent, { ...data, title });
+  return {
+    title,
     body,
-    header: 'partials/header',
-    footer: 'partials/footer'
-  }
-});
+    partials: {
+      header: 'partials/header',
+      footer: 'partials/footer'
+    }
+  };
+}
 
 // RUTAS PRINCIPALES
 app.get('/', (req, res) => {
@@ -47,6 +54,11 @@ app.get('/projects', (req, res) => {
 
 app.get('/contact', (req, res) => {
   res.render('layouts/main', renderWithLayout('contact', 'Contacto'));
+});
+
+// 404
+app.use((req, res) => {
+  res.status(404).render('layouts/main', renderWithLayout('404', 'Página no encontrada'));
 });
 
 // ARRANCAR

@@ -4,6 +4,7 @@
   "description": "Bienvenido a mi portafolio interactivo: un sitio moderno, lleno de animaciones suaves y contenido dinámico que revela mis proyectos, habilidades y mi pasión por la tecnología.",
   "main": "app.js",
   "scripts": {
+    "build": "node build.js",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
