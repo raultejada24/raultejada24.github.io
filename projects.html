@@ -4,50 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proyectos – Raúl Tejada</title>
-
-  <!-- Fuentes e íconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
-
-  <!-- Bootstrap CSS primero -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Tus CSS personalizados después -->
-  <link rel="stylesheet" href="/css/main.css" />
-  <link rel="stylesheet" href="/css/components.css" />
+  <style>
+    .projects-bg {
+      background: linear-gradient(120deg, #0d6efd 0%, #6f42c1 100%);
+      padding: 3rem 0 2rem 0;
+    }
+    .project-card {
+      border-radius: 1.2em;
+      border: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      background: #fff;
+      transition: transform 0.15s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    }
+    .project-badge {
+      font-size: 0.95rem;
+      padding: 0.4em 1em;
+      border-radius: 1em;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+      display: inline-block;
+      font-weight: 500;
+    }
+    .bg-java { background: #f89820; color: #fff; }
+    .bg-js { background: #ffe066; color: #222; }
+    .bg-sql { background: #6c757d; color: #fff; }
+    .bg-node { background: #34c759; color: #fff; }
+    .bg-bootstrap { background: #a259ff; color: #fff; }
+    .bg-mustache { background: #ffb347; color: #222; }
+    .bg-html { background: #ff7043; color: #fff; }
+    .bg-css { background: #2563eb; color: #fff; }
+    .bg-py { background: #4f8ef7; color: #fff; }
+    .bg-dark2 { background: #222; color: #fff; }
+    .bg-react { background: #61dafb; color: #222; }
+    @media (max-width: 767px) {
+      .projects-bg { padding: 2rem 0 1rem 0; }
+    }
+  </style>
 </head>
-<body>
+<body class="bg-light">
 
-  <header class="py-3 bg-dark text-white text-center">
-    <nav class="container d-flex justify-content-between align-items-center">
-      <h1 class="fs-4 mb-0">Raúl Tejada</h1>
-      <ul class="nav">
-        <li class="nav-item"><a href="/" class="nav-link text-white">Inicio</a></li>
-        <li class="nav-item"><a href="/about" class="nav-link text-white">Sobre mí</a></li>
-        <li class="nav-item"><a href="/projects" class="nav-link text-white">Proyectos</a></li>
-        <li class="nav-item"><a href="/contact" class="nav-link text-white">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-
-  <main class="container my-5">
-    <section>
-  <h2 class="mb-4 text-center">Proyectos destacados</h2>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">SelfOrderBurgerKiosk 🍔</h5>
-          <p class="card-text">Simulador de pedidos para restaurantes de comida rápida. Desarrollado en Java usando OOP y patrones de diseño.</p>
-          <a href="https://github.com/raultejada24/SelfOrderBurgerKiosk" class="btn btn-primary" target="_blank">Ver en GitHub</a>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Raúl Tejada</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="projects.html" class="nav-link active">Proyectos</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
       </div>
     </div>
-    <!-- Añade más proyectos aquí -->
-  </div>
-</section>
+  </nav>
+  
+    <section class="projects-bg">
+      <div class="container">
+        <h2 class="mb-4 text-center text-white" style="font-weight:700;"><i class="fa-solid fa-folder-open"></i> Proyectos destacados</h2>
+        <div class="row justify-content-center">
 
-  </main>
+          <!-- Proyecto 1 -->
+          <div class="col-md-4 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h5 class="card-title mb-2">SelfOrderBurgerKiosk <span>🍔</span></h5>
+                <div class="mb-2">
+                  <span class="project-badge bg-java"><i class="fa-brands fa-java"></i> Java</span>
+                  <span class="project-badge bg-dark2"><i class="fa-solid fa-cubes"></i> POO</span>
+                </div>
+                <p class="card-text">Simulador de pedidos para restaurantes de comida rápida. Desarrollado en Java usando POO y patrones de diseño.</p>
+                <a href="https://github.com/raultejada24/SelfOrderBurgerKiosk" class="btn btn-primary" target="_blank">
+                  <i class="fab fa-github"></i> Ver en GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div class="col-md-4 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h5 class="card-title mb-2">ShadowClash-JavaGame <span>🎮</span></h5>
+                <div class="mb-2">
+                  <span class="project-badge bg-java"><i class="fa-brands fa-java"></i> Java</span>
+                  <span class="project-badge bg-dark2"><i class="fa-solid fa-gamepad"></i> Game</span>
+                </div>
+                <p class="card-text">ShadowClash es un juego de lucha táctica en un mundo de fantasía oscura, donde criaturas legendarias se enfrentan en duelos estratégicos usando Java.</p>
+                <a href="https://github.com/raultejada24/ShadowClash-JavaGame" class="btn btn-primary" target="_blank">
+                  <i class="fab fa-github"></i> Ver en GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h5 class="card-title mb-2">ProyectoAulaVirtual <span>🖥️</span></h5>
+                <div class="mb-2">
+                  <span class="project-badge bg-js"><i class="fab fa-js"></i> JavaScript</span>
+                  <span class="project-badge bg-html"><i class="fa-brands fa-html5"></i> HTML5</span>
+                  <span class="project-badge bg-css"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                  <span class="project-badge bg-bootstrap"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+                </div>
+                <p class="card-text">Plataforma web educativa para gestión de asignaturas y la resolución de dudas de los estudiantes, desarrollada con JavaScript, HTML5, CSS3 y Bootstrap.</p>
+                <a href="https://github.com/raultejada24/ProyectoAulaVirtual" class="btn btn-primary" target="_blank">
+                  <i class="fab fa-github"></i> Ver en GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
   <footer class="py-4 bg-dark text-white text-center mt-5">
     <div class="container">
@@ -55,9 +134,6 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS desde CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/animations.js"></script>
 </body>
 </html>
