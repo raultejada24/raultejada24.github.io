@@ -1,137 +1,749 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raúl Tejada – Inicio</title>
+  <title>Raúl Tejada – Software Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .hero-bg {
-      background: linear-gradient(120deg, #0d6efd 0%, #6f42c1 100%);
-      color: #fff;
-    }
-    .tech-badge {
-      font-size: 1.05rem;
-      padding: 0.6em 1.1em;
-      margin: 0.3em;
-      border-radius: 2em;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      font-weight: 500;
-      border: none;
-    }
-    .section-title {
-      color: #2563eb;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .bg-js { background: #ffe066; color: #222; }
-    .bg-py { background: #4f8ef7; color: #fff; }
-    .bg-node { background: #34c759; color: #fff; }
-    .bg-git { background: #f1502f; color: #fff; }
-    .bg-react { background: #61dafb; color: #222; }
-    .bg-bootstrap { background: #a259ff; color: #fff; }
-    .bg-java { background: #f89820; color: #fff; }
-    .bg-sql { background: #6c757d; color: #fff; }
-    .bg-android { background: #3ddc84; color: #fff; }
-    .bg-css { background: #2563eb; color: #fff; }
-    .bg-ts { background: #ffd43b; color: #222; }
-    .bg-express { background: #222; color: #fff; }
-    .bg-mustache { background: #ffb347; color: #222; }
-    .bg-spring { background: #6db33f; color: #fff; }
-    .bg-html { background: #ff7043; color: #fff; }
-    .bg-pink { background: #ff69b4; color: #fff; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-light">
-
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Raúl Tejada</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
+<body>
+  <!-- Fixed Social Sidebar -->
+  <div class="social-sidebar" id="social-sidebar">
+    <div class="sidebar-link-wrapper">
+      <button class="sidebar-link" id="copy-email" aria-label="Copy Email">
+        <i class="fas fa-copy"></i>
       </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
-          <li class="nav-item"><a href="projects.html" class="nav-link">Proyectos</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
-        </ul>
-      </div>
+      <a href="mailto:r.tejada.2023@alumnos.urjc.es" class="sidebar-link" aria-label="Send Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
+    </div>
+    <a href="https://github.com/raultejada24" target="_blank" class="sidebar-link" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/raultejadamerinero/" target="_blank" class="sidebar-link" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <div class="sidebar-line"></div>
+  </div>
+
+  <!-- Animated Background Particles -->
+  <canvas id="particles-canvas"></canvas>
+  
+  <!-- Glow Effect -->
+  <div class="glow-effect" id="glow-effect"></div>
+  
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#home" class="logo">Raúl Tejada</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#why-me">Why Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- HERO / SOBRE MÍ -->
-  <section class="hero-bg text-center py-5">
-    <img src="fotogit.jpg" alt="Raúl Tejada" class="rounded-circle shadow mb-3 border border-4 border-light" width="130" height="130" style="object-fit:cover;">
-    <h1 class="display-4 fw-bold mb-2">Hola, soy Raúl Tejada </h1>
-    <p class="lead mb-3">
-      Estudiante de Ingeniería del Software en la URJC (Madrid), actualmente de Erasmus en Alemania 🇩🇪.<br>
-      Apasionado por la tecnología, el desarrollo web y la creación de experiencias digitales atractivas y funcionales.
-    </p>
-  </section>
-
-  <!-- INFO DESTACADA -->
-  <section class="container my-4">
-    <div class="row justify-content-center">
-      <div class="col-md-10 text-center">
-        <p class="fs-5 mb-2" style="color:#0d6efd;">
-          🚀 Me encanta aprender, crear y explorar nuevas ideas en el mundo del software.
-        </p>
-        <p class="fs-5 mb-2" style="color:#049554;">
-          💻 Desarrollador Full Stack con experiencia en Java, JavaScript y Python.
-        </p>
-        <p class="fs-5 mb-2" style="color:#e78906;">
-          🌱 Siempre enfocado en crecer y superarme cada día.
-        </p>
-        <p class="fs-5 mb-0" style="color:#e90878;">
-          📍 Con base en Madrid, España.
-        </p>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <img src="fotogit.jpg" alt="Raúl Tejada" class="hero-image">
+      <h1>Hi, I'm <span class="typing-text" id="typing"></span></h1>
+      <p class="subtitle">3rd-year Software Engineering student at <span class="highlight">Rey Juan Carlos University</span> (Móstoles, Madrid)</p>
+      <p>Passionate developer with a strong foundation in <span class="highlight">Full Stack development</span>, always building, learning, and exploring innovative solutions.</p>
+      <p>Recently completed <span class="highlight">Erasmus in Bochum, Germany</span>, gaining international experience and enhanced technical skills in diverse environments.</p>
+      <p>Looking for <span class="highlight">internship opportunities</span> to contribute, grow professionally, and collaborate with talented development teams.</p>
+      <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Based in Madrid, Spain</span>
       </div>
     </div>
   </section>
 
-  <!-- TECNOLOGÍAS DESTACADAS -->
-  <section class="container my-5">
-    <h2 class="text-center section-title mb-4"><i class="fa-solid fa-laptop-code"></i> Tecnologías principales</h2>
-    <div class="d-flex flex-wrap justify-content-center">
-      <span class="tech-badge bg-js"><i class="fab fa-js"></i> JavaScript</span>
-      <span class="tech-badge bg-py"><i class="fab fa-python"></i> Python</span>
-      <span class="tech-badge bg-node"><i class="fab fa-node-js"></i> Node.js</span>
-      <span class="tech-badge bg-git"><i class="fab fa-git-alt"></i> Git</span>
-      <span class="tech-badge bg-react"><i class="fab fa-react"></i> React</span>
-      <span class="tech-badge bg-bootstrap"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
-      <span class="tech-badge bg-java"><i class="fa-brands fa-java"></i> Java</span>
-      <span class="tech-badge bg-sql"><i class="fa-solid fa-database"></i> SQL/MySQL</span>
-      <span class="tech-badge bg-android"><i class="fa-brands fa-android"></i> Android Studio</span>
-      <span class="tech-badge bg-html"><i class="fa-brands fa-html5"></i> HTML5</span>
-      <span class="tech-badge bg-css"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-      <span class="tech-badge bg-ts"><i class="fa-solid fa-code"></i> TypeScript</span>
-      <span class="tech-badge bg-express"><i class="fa-solid fa-terminal"></i> Express</span>
-      <span class="tech-badge bg-mustache"><i class="fa-solid fa-mustache"></i> Mustache</span>
-      <span class="tech-badge bg-spring"><i class="fa-brands fa-spring"></i> Spring Boot</span>
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Always Learning</h3>
+        <p>I love learning, creating, and exploring new ideas in the software world.</p>
+      </div>
+      <div class="about-card">
+        <i class="fas fa-code"></i>
+        <h3>Full Stack Developer</h3>
+        <p>Experience with Java, JavaScript, Python, and modern web technologies.</p>
+      </div>
+      <div class="about-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Growth Mindset</h3>
+        <p>Always focused on growing and improving every day.</p>
+      </div>
+      <div class="about-card">
+        <i class="fas fa-globe"></i>
+        <h3>International Experience</h3>
+        <p>Completed Erasmus in Bochum, Germany, expanding my technical and cultural horizons.</p>
+      </div>
     </div>
   </section>
 
-  <!-- IDIOMAS -->
-  <section class="container text-center my-5">
-    <h2 class="mb-3 section-title"><i class="fa-solid fa-language"></i> Idiomas</h2>
-    <span class="badge bg-primary me-2 fs-6">🇪🇸 Español (Nativo)</span>
-    <span class="badge bg-success me-2 fs-6">🇬🇧 Inglés (C1)</span>
-    <span class="badge bg-warning text-dark fs-6">🇩🇪 Alemán (B1)</span>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>🍔 SelfOrderBurgerKiosk</h3>
+          <div class="project-tags">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">OOP</span>
+          </div>
+          <p>Self-service order simulator for fast food restaurants. Developed in Java using OOP and design patterns.</p>
+          <a href="https://github.com/raultejada24/SelfOrderBurgerKiosk" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>🎮 ShadowClash-JavaGame</h3>
+          <div class="project-tags">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">Game</span>
+          </div>
+          <p>Tactical fighting game in a dark fantasy world, where legendary creatures face off in strategic duels.</p>
+          <a href="https://github.com/raultejada24/ShadowClash-JavaGame" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>🖥️ ProyectoAulaVirtual</h3>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+          </div>
+          <p>Educational web platform for subject management and student doubt resolution with modern interface.</p>
+          <a href="https://github.com/raultejada24/ProyectoAulaVirtual" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>📱 Task Manager App</h3>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Node.js</span>
+          </div>
+          <p>Full-stack task management application with real-time updates and user authentication system.</p>
+          <a href="https://github.com/raultejada24" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>🌐 Portfolio Website</h3>
+          <div class="project-tags">
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <p>Minimalist personal portfolio with custom cursor effects and smooth scroll animations.</p>
+          <a href="https://github.com/raultejada24/raultejada24.github.io" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>🛒 E-Commerce Platform</h3>
+          <div class="project-tags">
+            <span class="project-tag">Spring Boot</span>
+            <span class="project-tag">MySQL</span>
+          </div>
+          <p>Full-featured e-commerce backend with REST API, payment integration, and inventory management.</p>
+          <a href="https://github.com/raultejada24" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>📊 Data Analytics Dashboard</h3>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">React</span>
+          </div>
+          <p>Interactive dashboard for data visualization and analysis with real-time charts and statistics.</p>
+          <a href="https://github.com/raultejada24" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 8 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>🤖 AI Chatbot</h3>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">NLP</span>
+          </div>
+          <p>Intelligent chatbot using natural language processing for customer service automation.</p>
+          <a href="https://github.com/raultejada24" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 9 -->
+      <div class="project-card">
+        <div class="project-content">
+          <h3>☁️ Cloud Infrastructure</h3>
+          <div class="project-tags">
+            <span class="project-tag">AWS</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">Kubernetes</span>
+          </div>
+          <p>Scalable cloud infrastructure deployment with containerization and orchestration tools.</p>
+          <a href="https://github.com/raultejada24" target="_blank" class="project-link">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- View All Projects Button -->
+    <div class="projects-cta">
+      <a href="https://github.com/raultejada24?tab=repositories" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i>
+        <span>View All GitHub Projects</span>
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+    </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-4 bg-dark text-white text-center mt-5">
-    <div class="container">
-      <p class="mb-0">© 2025 Raúl Tejada · Todos los derechos reservados</p>
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2 class="section-title">Technologies & Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fab fa-js" style="color: #f7df1e;"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-python" style="color: #3776ab;"></i>
+        <span>Python</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-java" style="color: #f89820;"></i>
+        <span>Java</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-node-js" style="color: #68a063;"></i>
+        <span>Node.js</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-react" style="color: #61dafb;"></i>
+        <span>React</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-html5" style="color: #e34f26;"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-bootstrap" style="color: #7952b3;"></i>
+        <span>Bootstrap</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-git-alt" style="color: #f05032;"></i>
+        <span>Git</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-database" style="color: #00758f;"></i>
+        <span>MySQL</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-code" style="color: #3178c6;"></i>
+        <span>TypeScript</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-server" style="color: #ffffff;"></i>
+        <span>Express</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-leaf" style="color: #6db33f;"></i>
+        <span>Spring Boot</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-docker" style="color: #2496ed;"></i>
+        <span>Docker</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-aws" style="color: #ff9900;"></i>
+        <span>AWS</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-compass" style="color: #47a248;"></i>
+        <span>MongoDB</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-angular" style="color: #dd0031;"></i>
+        <span>Angular</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-cube" style="color: #ff6c37;"></i>
+        <span>REST API</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-arrow-right" style="color: #61dafb;"></i>
+        <span>Next.js</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-cuttlefish" style="color: #00599c;"></i>
+        <span>C++</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-swift" style="color: #f05138;"></i>
+        <span>Swift</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-robot" style="color: #7f52ff;"></i>
+        <span>Kotlin</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-php" style="color: #777bb4;"></i>
+        <span>PHP</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-npm" style="color: #cb3837;"></i>
+        <span>NPM</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-chart-line" style="color: #f29111;"></i>
+        <span>R</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-github" style="color: #ffffff;"></i>
+        <span>GitHub</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-hashtag" style="color: #239120;"></i>
+        <span>C#</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-android" style="color: #3ddc84;"></i>
+        <span>Android Studio</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-linux" style="color: #4eaa25;"></i>
+        <span>Bash</span>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-github-alt" style="color: #ffffff;"></i>
+        <span>Git Workflow</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-table" style="color: #336791;"></i>
+        <span>PostgreSQL</span>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-wind" style="color: #06b6d4;"></i>
+        <span>Tailwind CSS</span>
+      </div>
     </div>
+  </section>
+
+  <!-- Why Me Section -->
+  <section id="why-me">
+    <h2 class="section-title">Why Me?</h2>
+    <div class="why-me-grid">
+      <div class="why-card">
+        <div class="icon">🚀</div>
+        <h3>Fast Learner</h3>
+        <p>Quick to adapt to new technologies and frameworks. Always eager to expand my skill set and stay updated with industry trends.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🌍</div>
+        <h3>International Experience</h3>
+        <p>Completed Erasmus in Germany, gaining cross-cultural communication skills and the ability to thrive in diverse environments.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">💡</div>
+        <h3>Problem Solver</h3>
+        <p>Strong analytical mindset with a passion for tackling complex challenges and delivering innovative solutions.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🤝</div>
+        <h3>Team Player</h3>
+        <p>Excellent collaboration skills, experienced with Git workflows, Agile methodologies, and working in multidisciplinary teams.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🎯</div>
+        <h3>Results-Driven</h3>
+        <p>Focused on delivering high-quality, scalable solutions. Committed to clean code practices and continuous improvement.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">📚</div>
+        <h3>Proactive & Curious</h3>
+        <p>Self-motivated with a strong desire to learn independently. Actively seek challenges and opportunities to grow professionally.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section id="languages">
+    <h2 class="section-title">Languages</h2>
+    <div class="languages">
+      <div class="language-badge">Spanish (Native)</div>
+      <div class="language-badge">English (C1 LanguageCert)</div>
+      <div class="language-badge">German (B1 Goethe)</div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem;">
+    <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.3), rgba(0, 255, 136, 0.3), transparent);"></div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Let's Connect!</h2>
+    <div class="contact-content">
+      <p>Have an idea, proposal, or just want to connect? I'm open to new opportunities, collaborations, and talking about technology, development, or any interesting project.</p>
+      <div class="contact-buttons">
+        <a href="mailto:r.tejada.2023@alumnos.urjc.es" class="contact-btn">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <span class="btn-title">Email</span>
+            <span class="btn-subtitle">r.tejada.2023@alumnos.urjc.es</span>
+          </div>
+        </a>
+        <button class="contact-btn" id="contact-copy-email">
+          <i class="fas fa-copy"></i>
+          <div>
+            <span class="btn-title">Copy Email</span>
+            <span class="btn-subtitle">Quick Access</span>
+          </div>
+        </button>
+        <a href="https://www.linkedin.com/in/raultejadamerinero/" target="_blank" class="contact-btn">
+          <i class="fab fa-linkedin"></i>
+          <div>
+            <span class="btn-title">LinkedIn</span>
+            <span class="btn-subtitle">/raultejadamerinero</span>
+          </div>
+        </a>
+        <a href="https://github.com/raultejada24" target="_blank" class="contact-btn">
+          <i class="fab fa-github"></i>
+          <div>
+            <span class="btn-title">GitHub</span>
+            <span class="btn-subtitle">/raultejada24</span>
+          </div>
+        </a>
+      </div>
+      <div class="contact-footer">
+        <div class="footer-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Madrid, Spain</span>
+        </div>
+        <div class="footer-item">
+          <i class="fas fa-briefcase"></i>
+          <span>Available for Work</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Raúl Tejada · All rights reserved</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Custom Cursor
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
+
+      // Create trail effect
+      if (Math.random() > 0.8) {
+        createTrail(mouseX, mouseY);
+      }
+    });
+
+    function animateFollower() {
+      followerX += (mouseX - followerX) * 0.1;
+      followerY += (mouseY - followerY) * 0.1;
+      
+      cursorFollower.style.left = followerX + 'px';
+      cursorFollower.style.top = followerY + 'px';
+      
+      requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    function createTrail(x, y) {
+      const trail = document.createElement('div');
+      trail.className = 'cursor-trail';
+      trail.style.left = x + 'px';
+      trail.style.top = y + 'px';
+      document.body.appendChild(trail);
+      
+      setTimeout(() => trail.remove(), 500);
+    }
+
+    // Typing Effect
+    const typingText = document.getElementById('typing');
+    const text = 'Raúl Tejada';
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 150);
+      }
+    }
+
+    setTimeout(type, 500);
+
+    // Particles Animation
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 80;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(0, 217, 255, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 100) {
+            ctx.strokeStyle = `rgba(0, 255, 136, ${0.2 - distance / 500})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      particles.length = 0;
+      init();
+    });
+
+    // Glow Effect following mouse
+    const glowEffect = document.getElementById('glow-effect');
+    let glowX = 0, glowY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      glowX = e.clientX - 300;
+      glowY = e.clientY - 300;
+      glowEffect.style.left = glowX + 'px';
+      glowEffect.style.top = glowY + 'px';
+    });
+
+    // Parallax effect and blur on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      const parallaxElements = document.querySelectorAll('.hero-content');
+      
+      // Blur effect on hero when scrolling - more gradual
+      const blurAmount = Math.min(scrolled / 300, 10);
+      const opacity = Math.max(1 - scrolled / 1200, 0.3);
+      hero.style.filter = `blur(${blurAmount}px)`;
+      hero.style.opacity = opacity;
+      
+      parallaxElements.forEach(el => {
+        const speed = 0.5;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+
+    // Enhanced scroll animations with stagger
+    const scrollElements = document.querySelectorAll('.project-card, .skill-card, .why-card, .about-card');
+    scrollElements.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.05}s`;
+    });
+
+    // Scroll Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Copy email functionality for contact section
+    const contactCopyBtn = document.getElementById('contact-copy-email');
+    
+    if (contactCopyBtn) {
+      contactCopyBtn.addEventListener('click', () => {
+        const email = 'r.tejada.2023@alumnos.urjc.es';
+        navigator.clipboard.writeText(email).then(() => {
+          const originalTitle = contactCopyBtn.querySelector('.btn-title').textContent;
+          contactCopyBtn.querySelector('.btn-title').textContent = 'Copied!';
+          contactCopyBtn.querySelector('.btn-title').style.color = 'var(--accent-green)';
+          
+          setTimeout(() => {
+            contactCopyBtn.querySelector('.btn-title').textContent = originalTitle;
+            contactCopyBtn.querySelector('.btn-title').style.color = 'var(--text-primary)';
+          }, 2000);
+        });
+      });
+    }
+
+    // Copy email functionality
+    const copyEmailBtn = document.getElementById('copy-email');
+    const copyTooltip = document.getElementById('copy-tooltip');
+    
+    if (copyEmailBtn) {
+      copyEmailBtn.addEventListener('click', () => {
+        const email = 'r.tejada.2023@alumnos.urjc.es';
+        navigator.clipboard.writeText(email).then(() => {
+          copyTooltip.classList.add('show');
+          setTimeout(() => {
+            copyTooltip.classList.remove('show');
+          }, 2000);
+        });
+      });
+    }
+
+    // Hide sidebar when reaching contact section
+    const contactSection = document.getElementById('contact');
+    const sidebar = document.getElementById('social-sidebar');
+    
+    const sidebarObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebar.classList.add('hidden');
+        } else {
+          sidebar.classList.remove('hidden');
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    if (contactSection && sidebar) {
+      sidebarObserver.observe(contactSection);
+    }
+  </script>
 </body>
 </html>

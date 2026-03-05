@@ -1,24 +1,20 @@
 # raultejada24.github.io
 
-¡Bienvenido a mi portafolio personal!
+Personal portfolio website showcasing my projects, skills, and professional profile.
 
-Aquí encontrarás el código fuente y los recursos de mi sitio web profesional, donde muestro mis proyectos, tecnologías favoritas y formas de contacto. El objetivo de este repositorio es ofrecer una presentación moderna, visual y accesible de mi perfil como desarrollador.
+## ✨ Features
 
-## ¿Qué puedes encontrar en este repositorio?
+- **Single-page design** - Modern minimalist dark theme with smooth scroll
+- **Custom cursor effects** - Animated cursor with trail effects
+- **9 featured projects** - Full Stack, Web, and Cloud projects
+- **30+ technologies** - JavaScript, Python, Java, React, Docker, AWS, and more
+- **Responsive** - Optimized for desktop and mobile devices
+- **Smooth animations** - Fade-in effects and hover interactions
 
-- **Página principal:** Una introducción sobre mí, mis intereses y las tecnologías que domino.
-- **Proyectos:** Una galería de mis proyectos más destacados, con descripciones y enlaces directos a los repositorios de GitHub.
-- **Contacto:** Formas sencillas de ponerte en contacto conmigo, ya sea por email, LinkedIn o GitHub.
-- **Diseño moderno:** Uso de Bootstrap, iconos y colores vibrantes para una experiencia atractiva y profesional.
-- **Código limpio y organizado:** Estructura clara para facilitar la navegación y futuras mejoras.
+## 🚀 View Live
 
-## ¿Cómo ver el portafolio?
-
-Puedes visitar el sitio en:  
-[https://raultejada24.github.io](https://raultejada24.github.io)
-
-O clonar este repositorio y abrir los archivos HTML en tu navegador.
+Visit: [https://raultejada24.github.io](https://raultejada24.github.io)
 
 ---
 
-¡Gracias por visitar mi portafolio! Si tienes cualquier sugerencia o quieres colaborar, no dudes en contactarme.
+**Raúl Tejada** - Software Engineering Student at Rey Juan Carlos University
