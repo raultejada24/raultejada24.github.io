@@ -38,7 +38,6 @@
   <div class="glow-effect" id="glow-effect"></div>
   
   <!-- Custom Cursor -->
-  <div class="cursor"></div>
   <div class="cursor-follower"></div>
 
   <!-- Navigation -->
@@ -495,7 +494,6 @@
 
   <script>
     // Custom Cursor
-    const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
     let mouseX = 0, mouseY = 0;
     let followerX = 0, followerY = 0;
@@ -504,9 +502,6 @@
       mouseX = e.clientX;
       mouseY = e.clientY;
       
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top = mouseY + 'px';
-
       // Create trail effect
       if (Math.random() > 0.8) {
         createTrail(mouseX, mouseY);
