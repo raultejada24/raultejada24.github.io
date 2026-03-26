@@ -15,6 +15,15 @@
   --text-muted: #6b6b6b;
 }
 
+body.light-mode {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e8e8e8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
@@ -23,6 +32,12 @@ body {
   cursor: none;
   overflow-x: hidden;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.mobile .cursor-follower,
+body.mobile .cursor-trail {
+  display: none !important;
 }
 
 #particles-canvas {
@@ -211,6 +226,12 @@ nav {
   z-index: 1000;
   padding: 1.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode nav {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 
 nav .container {
@@ -262,6 +283,41 @@ nav .nav-links a:hover {
 
 nav .nav-links a:hover::after {
   width: 100%;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--accent-cyan);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-green);
+  transform: rotate(180deg);
+}
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+  width: 0%;
+  z-index: 1001;
+  transition: width 0.15s linear;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+body.light-mode .scroll-progress-bar {
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
 }
 
 .hero {

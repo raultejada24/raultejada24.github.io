@@ -51,8 +51,15 @@
         <li><a href="#why-me">Why Me</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </nav>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
@@ -693,6 +700,49 @@
     if (contactSection && sidebar) {
       sidebarObserver.observe(contactSection);
     }
+
+    // Theme Toggle (Dark/Light Mode)
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+
+    // Set initial theme
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const isLightMode = document.body.classList.contains('light-mode');
+      localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+      themeToggle.innerHTML = isLightMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+
+    // Scroll Progress Bar
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.pageYOffset;
+      const progress = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    });
+
+    // Disable cursor effects on mobile
+    const checkIfMobile = () => {
+      const isMobile = window.innerWidth <= 768 || 
+                       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      if (isMobile) {
+        document.body.classList.add('mobile');
+      } else {
+        document.body.classList.remove('mobile');
+      }
+    };
+
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
   </script>
 </body>
 </html>
