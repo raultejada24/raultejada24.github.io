@@ -758,12 +758,6 @@
       });
     }
 
-    // Enhanced scroll animations with stagger
-    const scrollElements = document.querySelectorAll('.project-card, .skill-card, .why-card, .about-card');
-    scrollElements.forEach((el, index) => {
-      el.style.transitionDelay = `${index * 0.05}s`;
-    });
-
     // Scroll Animations
     const observerOptions = {
       threshold: 0.1,
