@@ -395,6 +395,40 @@ body.light-mode .scroll-progress-bar {
   }
 }
 
+.availability-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: fit-content;
+  margin: 0 auto 1.5rem auto;
+  padding: 0.5rem 1.3rem;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  border-radius: 50px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.availability-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  flex-shrink: 0;
+  animation: availabilityPulse 2s ease-out infinite;
+}
+
+@keyframes availabilityPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.6);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+  }
+}
+
 .hero h1 {
   font-size: 3.5rem;
   font-weight: 700;
@@ -1033,6 +1067,11 @@ footer {
 
   .hero p {
     font-size: 1rem;
+  }
+
+  .availability-badge {
+    font-size: 0.85rem;
+    padding: 0.45rem 1rem;
   }
 
   nav .container {
