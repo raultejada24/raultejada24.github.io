@@ -5,6 +5,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Raúl Tejada – Software Engineer</title>
+  <meta name="description"
+    content="Raúl Tejada, 4th-year Software Engineering student at URJC (Madrid). Full Stack, DevOps and AI projects. Available for internships from February 2027." />
+  <meta name="author" content="Raúl Tejada Merinero" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://raultejada24.github.io/" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- Social previews (LinkedIn, WhatsApp, X...) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://raultejada24.github.io/" />
+  <meta property="og:site_name" content="Raúl Tejada" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Raúl Tejada – Software Engineer" />
+  <meta property="og:description"
+    content="4th-year Software Engineering student at URJC (Madrid). Full Stack, DevOps and AI projects. Available for internships from February 2027." />
+  <meta property="og:image" content="https://raultejada24.github.io/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Raúl Tejada – Software Engineer, available for internships from February 2027" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -351,7 +377,7 @@
         <span>TypeScript</span>
       </div>
       <div class="skill-card">
-        <i class="fas fa-server" style="color: #ffffff;"></i>
+        <i class="fas fa-server" style="color: var(--text-primary);"></i>
         <span>Express</span>
       </div>
       <div class="skill-card">
@@ -562,6 +588,9 @@
   </footer>
 
   <script>
+    // Respect the OS "reduce motion" setting
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Custom Cursor
     const cursorFollower = document.querySelector('.cursor-follower');
     let mouseX = 0, mouseY = 0;
@@ -572,7 +601,7 @@
       mouseY = e.clientY;
 
       // Create trail effect
-      if (Math.random() > 0.8) {
+      if (!reduceMotion && Math.random() > 0.8) {
         createTrail(mouseX, mouseY);
       }
     });
@@ -586,7 +615,7 @@
 
       requestAnimationFrame(animateFollower);
     }
-    animateFollower();
+    if (!reduceMotion) animateFollower();
 
     function createTrail(x, y) {
       const trail = document.createElement('div');
@@ -611,7 +640,11 @@
       }
     }
 
-    setTimeout(type, 500);
+    if (reduceMotion) {
+      typingText.textContent = text;
+    } else {
+      setTimeout(type, 500);
+    }
 
     // Particles Animation
     const canvas = document.getElementById('particles-canvas');
@@ -679,7 +712,8 @@
         }
       }
 
-      requestAnimationFrame(animate);
+      // With reduced motion, draw a single static frame
+      if (!reduceMotion) requestAnimationFrame(animate);
     }
 
     init();
@@ -690,6 +724,7 @@
       canvas.height = window.innerHeight;
       particles.length = 0;
       init();
+      if (reduceMotion) animate();
     });
 
     // Glow Effect following mouse
@@ -704,22 +739,24 @@
     });
 
     // Parallax effect and blur on scroll
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const hero = document.querySelector('.hero');
-      const parallaxElements = document.querySelectorAll('.hero-content');
+    if (!reduceMotion) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        const parallaxElements = document.querySelectorAll('.hero-content');
 
-      // Blur effect on hero when scrolling - more gradual
-      const blurAmount = Math.min(scrolled / 300, 10);
-      const opacity = Math.max(1 - scrolled / 1200, 0.3);
-      hero.style.filter = `blur(${blurAmount}px)`;
-      hero.style.opacity = opacity;
+        // Blur effect on hero when scrolling - more gradual
+        const blurAmount = Math.min(scrolled / 300, 10);
+        const opacity = Math.max(1 - scrolled / 1200, 0.3);
+        hero.style.filter = `blur(${blurAmount}px)`;
+        hero.style.opacity = opacity;
 
-      parallaxElements.forEach(el => {
-        const speed = 0.5;
-        el.style.transform = `translateY(${scrolled * speed}px)`;
+        parallaxElements.forEach(el => {
+          const speed = 0.5;
+          el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
       });
-    });
+    }
 
     // Enhanced scroll animations with stagger
     const scrollElements = document.querySelectorAll('.project-card, .skill-card, .why-card, .about-card');
@@ -751,7 +788,7 @@
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
         }
       });
     });

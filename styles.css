@@ -34,7 +34,6 @@ body {
     "Segoe UI",
     sans-serif;
   line-height: 1.6;
-  cursor: none;
   overflow-x: hidden;
   position: relative;
   transition:
@@ -583,6 +582,10 @@ section > * {
   background: rgba(26, 26, 26, 0.8);
 }
 
+body.light-mode .skill-card:hover {
+  background: #ffffff;
+}
+
 .skill-card i {
   font-size: 2.5rem;
   margin-bottom: 0.8rem;
@@ -1098,10 +1101,6 @@ footer {
     padding: 2.5rem 1.5rem;
   }
 
-  body {
-    cursor: auto;
-  }
-
   .cursor,
   .cursor-follower,
   .cursor-trail {
@@ -1124,5 +1123,31 @@ footer {
   .cv-btn {
     padding: 0.9rem 2rem;
     font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+
+  section {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cursor-follower,
+  .cursor-trail,
+  .glow-effect {
+    display: none;
   }
 }
