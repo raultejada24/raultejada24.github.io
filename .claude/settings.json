@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /c/Users/rault/Desktop/VsCode/raultejada24.github.io/.github; ls -la /c/Users/rault/Desktop /c/Users/rault/Downloads 2>/dev/null | grep -i -E \"cv|pdf\")",
+      "Read(//c/Users/rault/Desktop/**)"
+    ]
+  }
+}

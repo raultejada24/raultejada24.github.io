@@ -593,6 +593,11 @@ section > * {
   transition: opacity 0.4s ease;
 }
 
+/* Center a lone card in the last row of the 3-column grid */
+.project-card:last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+
 .project-card:hover {
   transform: translateY(-10px);
   border-color: var(--accent-cyan);
@@ -858,6 +863,8 @@ section > * {
 .cv-section {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin: 3rem 0 2rem 0;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -967,6 +974,10 @@ footer {
 @media (max-width: 968px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card:last-child:nth-child(3n + 1) {
+    grid-column: auto;
   }
 
   .about-grid {
