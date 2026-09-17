@@ -2,7 +2,11 @@
 
 Personal portfolio website showcasing my projects, skills, and professional profile.
 
-## ✨ Features
+## View Live
+
+Visit: [https://raultejada24.github.io](https://raultejada24.github.io)
+
+## Features
 
 - **Single-page design** - Modern minimalist dark theme with smooth scroll
 - **Custom cursor effects** - Animated cursor with trail effects
@@ -10,10 +14,6 @@ Personal portfolio website showcasing my projects, skills, and professional prof
 - **30+ technologies** - JavaScript, Python, Java, React, Docker, AWS, and more
 - **Responsive** - Optimized for desktop and mobile devices
 - **Smooth animations** - Fade-in effects and hover interactions
-
-## 🚀 View Live
-
-Visit: [https://raultejada24.github.io](https://raultejada24.github.io)
 
 ---
 
