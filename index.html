@@ -8,15 +8,14 @@
   <meta name="description"
     content="Raúl Tejada, 4th-year Software Engineering student at URJC (Madrid). Full Stack, DevOps and AI projects. Available for internships from February 2027." />
   <meta name="author" content="Raúl Tejada Merinero" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://raultejada24.github.io/" />
 
-  <!-- Favicons -->
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <!-- Social previews (LinkedIn, WhatsApp, X...) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://raultejada24.github.io/" />
   <meta property="og:site_name" content="Raúl Tejada" />
@@ -31,857 +30,1237 @@
   <meta property="og:image:alt" content="Raúl Tejada – Software Engineer, available for internships from February 2027" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) { }
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = stored === 'light' || stored === 'dark' ? stored : (prefersDark ? 'dark' : 'light');
+      root.classList.add('js');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- Fixed Social Sidebar -->
-  <div class="social-sidebar" id="social-sidebar">
-    <div class="sidebar-link-wrapper">
-      <button class="sidebar-link" id="copy-email" aria-label="Copy Email">
-        <i class="fas fa-copy"></i>
-      </button>
-      <a href="mailto:r.tejada.2023@alumnos.urjc.es" class="sidebar-link" aria-label="Send Email">
-        <i class="fas fa-envelope"></i>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-copy" viewBox="0 0 24 24">
+      <rect x="9" y="9" width="11" height="11" rx="1.5" />
+      <path d="M5 15V5.5A1.5 1.5 0 0 1 6.5 4H15" />
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="M5 12.5l4.5 4.5L19 7.5" />
+    </symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24">
+      <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" />
+    </symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" />
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24">
+      <path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" />
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24">
+      <path d="M8 16 17 7M9.5 7H17v7.5" />
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 16 16">
+      <path fill="currentColor" stroke="none"
+        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path fill="currentColor" stroke="none"
+        d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+      <circle cx="12" cy="9.5" r="2.5" />
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3.5 6.5 8.5 6.5 8.5-6.5" />
+    </symbol>
+    <symbol id="i-repo" viewBox="0 0 24 24">
+      <path d="M5 18.5V5.5A2.5 2.5 0 0 1 7.5 3H19v13H7.5A2.5 2.5 0 0 0 5 18.5zm0 0A2.5 2.5 0 0 0 7.5 21H19v-5" />
+    </symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24">
+      <circle cx="6" cy="5" r="2" />
+      <circle cx="6" cy="19" r="2" />
+      <circle cx="18" cy="7" r="2" />
+      <path d="M6 7v10M18 9c0 5-7 4-11 8.5" />
+    </symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24">
+      <path d="M3 12h4l3-7 4 14 3-7h4" />
+    </symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24">
+      <path d="M5 8h14l-1.2 12H6.2z" />
+      <path d="M9 10V6.5a3 3 0 0 1 6 0V10" />
+    </symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24">
+      <path d="M3 9.5 12 4l9 5.5M5 10v8M9.7 10v8M14.3 10v8M19 10v8M3 20.5h18" />
+    </symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24">
+      <rect x="8" y="7" width="8" height="13" rx="4" />
+      <path d="M10 7.5V6a2 2 0 0 1 4 0v1.5M8 11H4M16 11h4M8 16H4.5M16 16h3.5M9.5 4 8 2.5M14.5 4 16 2.5M12 11v9" />
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="m20 20-4.2-4.2" />
+    </symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24">
+      <path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z" />
+      <path d="M18.5 16v4M16.5 18h4" />
+    </symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24">
+      <rect x="3" y="4.5" width="18" height="15" rx="2" />
+      <path d="m7 9.5 3 2.5-3 2.5M12.5 15H17" />
+    </symbol>
+    <symbol id="i-command" viewBox="0 0 24 24">
+      <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+    </symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24">
+      <path d="M12 19V5M6 11l6-6 6 6" />
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" />
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24">
+      <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+      <path d="M3.5 10h17M8 3v4M16 3v4" />
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z" />
+    </symbol>
+    <symbol id="i-sail" viewBox="0 0 24 24">
+      <path d="M12 3v13M12 4.5l6.5 11H12M10 7.5l-5 8h5M3 19.5c1.5 1 3 1 4.5 0 1.5 1 3 1 4.5 0 1.5 1 3 1 4.5 0 1.5 1 3 1 4.5 0" />
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect class="bm-bg" width="64" height="64" rx="14" />
+          <g transform="translate(32 33) scale(1.15) translate(-31.25 -33)">
+            <path class="bm-letter" fill-rule="evenodd"
+              d="M18 12H32A9.5 9.5 0 0 1 32 31H25V44H18ZM25 18.5H32A3 3 0 0 1 32 24.5H25Z" />
+            <path class="bm-letter" d="M27 28H34L44.5 44H37Z" />
+            <rect class="bm-caret" x="18" y="49" width="26.5" height="5" rx="1" />
+          </g>
+        </svg>
+        <span>Raúl Tejada</span>
       </a>
-      <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
-    </div>
-    <a href="https://github.com/raultejada24" target="_blank" class="sidebar-link" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://linkedin.com/in/raultejadamerinero/" target="_blank" class="sidebar-link" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <div class="sidebar-line"></div>
-  </div>
-
-  <!-- Animated Background Particles -->
-  <canvas id="particles-canvas"></canvas>
-
-  <!-- Glow Effect -->
-  <div class="glow-effect" id="glow-effect"></div>
-
-  <!-- Custom Cursor -->
-  <div class="cursor-follower"></div>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="container">
-      <a href="#home" class="logo">Raúl Tejada</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#why-me">Why Me</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
-        <i class="fas fa-moon"></i>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scroll-progress"></div>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <img src="fotogit.jpg" alt="Raúl Tejada" class="hero-image">
-      <div class="availability-badge">
-        <span class="availability-dot"></span>
-        <span>Available for internships from February 2027</span>
-      </div>
-      <h1>Hi, I'm <span class="typing-text" id="typing"></span></h1>
-      <p class="subtitle">4th-year Software Engineering student at <span class="highlight">Rey Juan Carlos
-          University</span> (Móstoles, Madrid)</p>
-      <p>Passionate Full Stack Developer focused on <span class="highlight">AI-powered features, automation, and
-          DevOps</span>, building scalable products with clean, secure, and maintainable code.</p>
-      <p>Recently completed <span class="highlight">Erasmus in Bochum, Germany</span>, gaining strong adaptability and
-        fluency in multicultural teams.</p>
-      <p>Looking for an <span class="highlight">internship or junior role</span> to transform business problems into
-        real tech solutions and add value from day one.</p>
-      <div class="location">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Based in Madrid, Spain</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
-      <div class="about-card">
-        <i class="fas fa-rocket"></i>
-        <h3>Always Learning</h3>
-        <p>I love learning, creating, and exploring new ideas in the software world.</p>
-      </div>
-      <div class="about-card">
-        <i class="fas fa-code"></i>
-        <h3>Full Stack Developer</h3>
-        <p>Experience with Java, JavaScript, Python, and modern web technologies.</p>
-      </div>
-      <div class="about-card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Growth Mindset</h3>
-        <p>Always focused on growing and improving every day.</p>
-      </div>
-      <div class="about-card">
-        <i class="fas fa-globe"></i>
-        <h3>International Experience</h3>
-        <p>Completed Erasmus in Bochum, Germany, expanding my technical and cultural horizons.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
-
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🐞 FindBugs Modern Evolution</h3>
-          <div class="project-tags">
-            <span class="project-tag">Java 21</span>
-            <span class="project-tag">Static Analysis</span>
-            <span class="project-tag">AI-Assisted</span>
-          </div>
-          <p>A complete reengineering of the legacy FindBugs (v3.0.1) static analysis tool. Upgraded to Java 21 with
-            modular architecture, SOLID principles, AI-assisted vulnerability explanations, and a dynamic Web Dashboard.
-          </p>
-          <a href="https://github.com/raultejada24/findbugs-modern-evolution" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🏦 BankingApp</h3>
-          <div class="project-tags">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">CI/CD</span>
-            <span class="project-tag">DevOps</span>
-          </div>
-          <p>A robust CI/CD implementation focused on Software Quality Assurance. Demonstrates automated testing
-            pipelines (unit & system tests), Docker containerization, and professional collaborative development using
-            GitHub Flow.</p>
-          <a href="https://github.com/raultejada24/bankingapp-sw-quality" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🎨 Stilnovo</h3>
-          <div class="project-tags">
-            <span class="project-tag">Spring Boot</span>
-            <span class="project-tag">React</span>
-            <span class="project-tag">Docker</span>
-          </div>
-          <p>Second-hand marketplace built as a team project. Spring Boot backend with an OpenAPI-documented REST API,
-            React/TypeScript SPA, MySQL, Docker, GitHub Actions CI/CD and a Gemini AI assistant, deployed on a
-            university server.</p>
-          <a href="https://github.com/raultejada24/stilnovo-application" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🚴 Strava Dashboard</h3>
-          <div class="project-tags">
-            <span class="project-tag">TypeScript</span>
-            <span class="project-tag">React</span>
-            <span class="project-tag">Data Viz</span>
-          </div>
-          <p>Self-hosted training dashboard for Strava activities: GPS maps, heart-rate zones, fitness tracking
-            (CTL/ATL/TSB), personal records, and performance analysis. Runs fully local, with no cloud, no database,
-            and no subscription.</p>
-          <a href="https://github.com/raultejada24/strava-dashboard" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🔧 Linux Dev Automator</h3>
-          <div class="project-tags">
-            <span class="project-tag">Bash</span>
-            <span class="project-tag">DevOps</span>
-            <span class="project-tag">Automation</span>
-          </div>
-          <p>A collection of advanced Bash scripts to automate development environment setup, system monitoring, and
-            automated backups. Perfect for streamlining DevOps workflows.</p>
-          <a href="https://github.com/raultejada24/linux-dev-automator" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 6 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>☕ Java Streams Data Analyzer</h3>
-          <div class="project-tags">
-            <span class="project-tag">Java 17+</span>
-            <span class="project-tag">Streams</span>
-            <span class="project-tag">Records</span>
-          </div>
-          <p>A lightweight, dependency-free Java console application demonstrating modern Java 17+ features, including
-            Records, Stream API, and File I/O.</p>
-          <a href="https://github.com/raultejada24/java-streams-data-analyzer" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 7 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🔐 Cryptography Algorithms</h3>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Security</span>
-            <span class="project-tag">Algorithms</span>
-          </div>
-          <p>A collection of fundamental cryptographic algorithms (Caesar, Base64, Vigenère, XOR, and AES-128)
-            implemented in Python.</p>
-          <a href="https://github.com/raultejada24/cryptography-algorithms" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 8 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🖥️ ProyectoAulaVirtual</h3>
-          <div class="project-tags">
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">HTML5</span>
-            <span class="project-tag">CSS3</span>
-          </div>
-          <p>Educational web platform for subject management and student doubt resolution with modern interface.</p>
-          <a href="https://github.com/raultejada24/aula-virtual-project" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 9 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🍔 SelfOrderBurgerKiosk</h3>
-          <div class="project-tags">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">OOP</span>
-          </div>
-          <p>Self-service order simulator for fast food restaurants. Developed in Java using OOP and design patterns.
-          </p>
-          <a href="https://github.com/raultejada24/self-order-burger-kiosk" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 10 -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3>🎮 ShadowClash-JavaGame</h3>
-          <div class="project-tags">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">Game</span>
-          </div>
-          <p>Tactical fighting game in a dark fantasy world, where legendary creatures face off in strategic duels.</p>
-          <a href="https://github.com/raultejada24/shadow-clash-java-game" target="_blank" class="project-link">
-            View on GitHub <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- View All Projects Button -->
-    <div class="projects-cta">
-      <a href="https://github.com/raultejada24?tab=repositories" target="_blank" class="github-btn">
-        <i class="fab fa-github"></i>
-        <span>View All GitHub Projects</span>
-        <i class="fas fa-external-link-alt"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2 class="section-title">Technologies & Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <i class="fab fa-js" style="color: #f7df1e;"></i>
-        <span>JavaScript</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-python" style="color: #3776ab;"></i>
-        <span>Python</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-java" style="color: #f89820;"></i>
-        <span>Java</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-node-js" style="color: #68a063;"></i>
-        <span>Node.js</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-react" style="color: #61dafb;"></i>
-        <span>React</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-html5" style="color: #e34f26;"></i>
-        <span>HTML5</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
-        <span>CSS3</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-vial" style="color: #25a162;"></i>
-        <span>JUnit</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-check-double" style="color: #7b61ff;"></i>
-        <span>Mockito</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-database" style="color: #00758f;"></i>
-        <span>MySQL</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-code" style="color: #3178c6;"></i>
-        <span>TypeScript</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-server" style="color: var(--text-primary);"></i>
-        <span>Express</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-leaf" style="color: #6db33f;"></i>
-        <span>Spring Boot</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-docker" style="color: #2496ed;"></i>
-        <span>Docker</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-aws" style="color: #ff9900;"></i>
-        <span>AWS</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-compass" style="color: #47a248;"></i>
-        <span>MongoDB</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-angular" style="color: #dd0031;"></i>
-        <span>Angular</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-cube" style="color: #ff6c37;"></i>
-        <span>REST API</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-hammer" style="color: #d19a00;"></i>
-        <span>Maven</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-cuttlefish" style="color: #00599c;"></i>
-        <span>C++</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-swift" style="color: #f05138;"></i>
-        <span>Swift</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-robot" style="color: #7f52ff;"></i>
-        <span>Kotlin</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-php" style="color: #777bb4;"></i>
-        <span>PHP</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-npm" style="color: #cb3837;"></i>
-        <span>NPM</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-bug" style="color: #43B02A;"></i>
-        <span>Selenium</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-chart-bar" style="color: #4E9CD6;"></i>
-        <span>SonarQube</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-gears" style="color: #00d9ff;"></i>
-        <span>CI/CD</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-route" style="color: #CA4245;"></i>
-        <span>React Router</span>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-linux" style="color: #4eaa25;"></i>
-        <span>Bash</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-paper-plane" style="color: #ff6c37;"></i>
-        <span>Postman</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-percentage" style="color: #C80000;"></i>
-        <span>JaCoCo</span>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-wind" style="color: #06b6d4;"></i>
-        <span>Tailwind CSS</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Me Section -->
-  <section id="why-me">
-    <h2 class="section-title">Why Me?</h2>
-    <div class="why-me-grid">
-      <div class="why-card">
-        <div class="icon">🚀</div>
-        <h3>Fast Learner</h3>
-        <p>Quick to adapt to new technologies and frameworks. Always eager to expand my skill set and stay updated with
-          industry trends.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🌍</div>
-        <h3>International Experience</h3>
-        <p>Completed Erasmus in Germany, gaining cross-cultural communication skills and the ability to thrive in
-          diverse environments.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">💡</div>
-        <h3>Problem Solver</h3>
-        <p>Strong analytical mindset with a passion for tackling complex challenges and delivering innovative solutions.
-        </p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🤝</div>
-        <h3>Team Player</h3>
-        <p>Excellent collaboration skills, experienced with Git workflows, Agile methodologies, and working in
-          multidisciplinary teams.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🎯</div>
-        <h3>Results-Driven</h3>
-        <p>Focused on delivering high-quality, scalable solutions. Committed to clean code practices and continuous
-          improvement.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">📚</div>
-        <h3>Proactive & Curious</h3>
-        <p>Self-motivated with a strong desire to learn independently. Actively seek challenges and opportunities to
-          grow professionally.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Languages Section -->
-  <section id="languages">
-    <h2 class="section-title">Languages</h2>
-    <div class="languages">
-      <div class="language-badge">Spanish (Native)</div>
-      <div class="language-badge">English (C1 LanguageCert)</div>
-      <div class="language-badge">German (B1 Goethe)</div>
-    </div>
-  </section>
-
-  <!-- Divider -->
-  <div style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem;">
-    <div
-      style="height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.3), rgba(0, 255, 136, 0.3), transparent);">
-    </div>
-  </div>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title">Let's Connect!</h2>
-    <div class="contact-content">
-      <p>Have an idea, proposal, or just want to connect? I'm open to new opportunities, collaborations, and talking
-        about technology, development, or any interesting project.</p>
-      <div class="contact-buttons">
-        <a href="mailto:r.tejada.2023@alumnos.urjc.es" class="contact-btn">
-          <i class="fas fa-envelope"></i>
-          <div>
-            <span class="btn-title">Email</span>
-            <span class="btn-subtitle">r.tejada.2023@alumnos.urjc.es</span>
-          </div>
-        </a>
-        <button class="contact-btn" id="contact-copy-email">
-          <i class="fas fa-copy"></i>
-          <div>
-            <span class="btn-title">Copy Email</span>
-            <span class="btn-subtitle">Quick Access</span>
-          </div>
+      <nav class="site-nav" aria-label="Sections">
+        <ul>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#why-me">Why me</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="cmd-btn" id="palette-open" type="button" aria-haspopup="dialog" aria-label="Open command palette">
+          <svg class="icon"><use href="#i-command" /></svg>
+          <kbd class="cmd-kbd" aria-hidden="true">Ctrl K</kbd>
         </button>
-        <a href="https://www.linkedin.com/in/raultejadamerinero/" target="_blank" class="contact-btn">
-          <i class="fab fa-linkedin"></i>
-          <div>
-            <span class="btn-title">LinkedIn</span>
-            <span class="btn-subtitle">/raultejadamerinero</span>
-          </div>
-        </a>
-        <a href="https://github.com/raultejada24" target="_blank" class="contact-btn">
-          <i class="fab fa-github"></i>
-          <div>
-            <span class="btn-title">GitHub</span>
-            <span class="btn-subtitle">/raultejada24</span>
-          </div>
-        </a>
-      </div>
-      <div class="cv-section">
-        <a href="cves.pdf" download="Raul_Tejada_Merinero_CV_ES.pdf" class="cv-btn">
-          <i class="fas fa-file-pdf"></i>
-          <span class="cv-text">Descargar CV (ES)</span>
-        </a>
-        <a href="cven.pdf" download="Raul_Tejada_Merinero_CV_EN.pdf" class="cv-btn">
-          <i class="fas fa-file-pdf"></i>
-          <span class="cv-text">Download CV (EN)</span>
-        </a>
-      </div>
-      <div class="contact-footer">
-        <div class="footer-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Madrid, Spain</span>
-        </div>
-        <div class="footer-item">
-          <i class="fas fa-briefcase"></i>
-          <span>Available for internships from February 2027</span>
-        </div>
+        <button class="copy-btn" type="button" data-copy="r.tejada.2023@alumnos.urjc.es">
+          <svg class="icon i-copy"><use href="#i-copy" /></svg>
+          <svg class="icon i-check"><use href="#i-check" /></svg>
+          <span class="copy-label">Copy email</span>
+        </button>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon i-moon"><use href="#i-moon" /></svg>
+          <svg class="icon i-sun"><use href="#i-sun" /></svg>
+        </button>
       </div>
     </div>
-  </section>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+  </header>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Raúl Tejada · All rights reserved</p>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <div class="hero-id">
+            <div class="avatar">
+              <img src="fotogit.jpg" alt="Raúl Tejada" width="637" height="589" />
+              <span class="avatar-status" aria-hidden="true"></span>
+            </div>
+            <p class="badge-live"><span class="pulse" aria-hidden="true"></span>Available for internships from February
+              2027</p>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="visually-hidden">Hi, I'm Raúl Tejada</span>
+            <span aria-hidden="true">Hi, I'm <span class="typed"><span class="typed-ghost">Raúl Tejada</span><span
+                  class="typed-live">Raúl Tejada</span></span></span>
+          </h1>
+          <p class="hero-sub">4th-year Software Engineering student at <strong>Rey Juan Carlos University</strong>
+            (Móstoles, Madrid)</p>
+
+          <div class="hero-body">
+            <p>Passionate Full Stack Developer focused on <strong>AI-powered features, automation, and DevOps</strong>,
+              building scalable products with clean, secure, and maintainable code.</p>
+            <p>Recently completed <strong>Erasmus in Bochum, Germany</strong>, gaining strong adaptability and fluency
+              in multicultural teams.</p>
+            <p>Looking for an <strong>internship or junior role</strong> to transform business problems into real tech
+              solutions and add value from day one.</p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="cven.pdf" download="Raul_Tejada_Merinero_CV_EN.pdf">
+              <svg class="icon"><use href="#i-download" /></svg>
+              Download CV
+            </a>
+            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+            <a class="icon-btn icon-btn--lg" href="https://github.com/raultejada24" target="_blank" rel="noopener"
+              aria-label="GitHub profile">
+              <svg class="icon"><use href="#i-github" /></svg>
+            </a>
+            <a class="icon-btn icon-btn--lg" href="https://www.linkedin.com/in/raultejadamerinero/" target="_blank"
+              rel="noopener" aria-label="LinkedIn profile">
+              <svg class="icon"><use href="#i-linkedin" /></svg>
+            </a>
+          </div>
+
+          <p class="hero-location">
+            <svg class="icon"><use href="#i-pin" /></svg>
+            Based in Madrid, Spain
+          </p>
+        </div>
+
+        <div class="editor">
+          <div class="editor-tabs">
+            <div class="tablist" role="tablist" aria-label="Files">
+              <button class="tab is-active" type="button" role="tab" id="tab-raul" aria-selected="true"
+                aria-controls="panel-raul" data-lang="TypeScript"><span class="ts-badge" aria-hidden="true">TS</span>raul.ts</button>
+              <button class="tab" type="button" role="tab" id="tab-stack" aria-selected="false"
+                aria-controls="panel-stack" tabindex="-1" data-lang="JSON"><span class="json-badge" aria-hidden="true">{ }</span>stack.json</button>
+            </div>
+            <a class="tab tab--link" href="cven.pdf" download="Raul_Tejada_Merinero_CV_EN.pdf"
+              title="Download CV (PDF)"><span class="pdf-badge" aria-hidden="true">PDF</span>cv.pdf</a>
+          </div>
+          <div class="editor-code" role="tabpanel" id="panel-raul" aria-labelledby="tab-raul" tabindex="0">
+            <span class="line"><span class="t-com">// raul.ts</span></span>
+            <span class="line"><span class="t-kw">export const</span> <span class="t-var">raul</span> <span class="t-pun">= {</span></span>
+            <span class="line">  <span class="t-key">role</span><span class="t-pun">:</span> <span class="t-str">"Software Engineering student"</span><span class="t-pun">,</span></span>
+            <span class="line">  <span class="t-key">university</span><span class="t-pun">:</span> <span class="t-str">"URJC, Madrid"</span><span class="t-pun">,</span></span>
+            <span class="line">  <span class="t-key">focus</span><span class="t-pun">: [</span><span class="t-str">"Full Stack"</span><span class="t-pun">,</span> <span class="t-str">"DevOps"</span><span class="t-pun">,</span> <span class="t-str">"AI"</span><span class="t-pun">],</span></span>
+            <span class="line">  <span class="t-key">building</span><span class="t-pun">:</span> <span class="t-str">"CadenceLab"</span><span class="t-pun">,</span></span>
+            <span class="line">  <span class="t-key">erasmus</span><span class="t-pun">:</span> <span class="t-str">"Bochum, Germany"</span><span class="t-pun">,</span></span>
+            <span class="line">  <span class="t-key">availableFrom</span><span class="t-pun">:</span> <span class="t-str">"2027-02"</span><span class="t-pun">,</span></span>
+            <span class="line"><span class="t-pun">};</span></span>
+            <span class="line"><span class="caret-block"></span></span>
+          </div>
+          <div class="editor-code" role="tabpanel" id="panel-stack" aria-labelledby="tab-stack" tabindex="0" hidden>
+            <span class="line"><span class="t-pun">{</span></span>
+            <span class="line">  <span class="t-key">"languages"</span><span class="t-pun">: [</span><span class="t-str">"Java"</span><span class="t-pun">,</span> <span class="t-str">"TypeScript"</span><span class="t-pun">,</span> <span class="t-str">"Python"</span><span class="t-pun">],</span></span>
+            <span class="line">  <span class="t-key">"backend"</span><span class="t-pun">: [</span><span class="t-str">"Spring Boot"</span><span class="t-pun">,</span> <span class="t-str">"NestJS"</span><span class="t-pun">,</span> <span class="t-str">"Node.js"</span><span class="t-pun">],</span></span>
+            <span class="line">  <span class="t-key">"frontend"</span><span class="t-pun">: [</span><span class="t-str">"React"</span><span class="t-pun">,</span> <span class="t-str">"Vite"</span><span class="t-pun">,</span> <span class="t-str">"Tailwind"</span><span class="t-pun">],</span></span>
+            <span class="line">  <span class="t-key">"data"</span><span class="t-pun">: [</span><span class="t-str">"MySQL"</span><span class="t-pun">,</span> <span class="t-str">"MongoDB"</span><span class="t-pun">,</span> <span class="t-str">"Prisma"</span><span class="t-pun">],</span></span>
+            <span class="line">  <span class="t-key">"devops"</span><span class="t-pun">: [</span><span class="t-str">"Docker"</span><span class="t-pun">,</span> <span class="t-str">"GitHub Actions"</span><span class="t-pun">,</span> <span class="t-str">"K8s"</span><span class="t-pun">],</span></span>
+            <span class="line">  <span class="t-key">"cloud"</span><span class="t-pun">: [</span><span class="t-str">"AWS"</span><span class="t-pun">,</span> <span class="t-str">"Azure"</span><span class="t-pun">,</span> <span class="t-str">"Vercel"</span><span class="t-pun">],</span></span>
+            <span class="line">  <span class="t-key">"testing"</span><span class="t-pun">: [</span><span class="t-str">"JUnit"</span><span class="t-pun">,</span> <span class="t-str">"Jest"</span><span class="t-pun">,</span> <span class="t-str">"Selenium"</span><span class="t-pun">]</span></span>
+            <span class="line"><span class="t-pun">}</span></span>
+            <span class="line"><span class="caret-block"></span></span>
+          </div>
+          <div class="editor-status" aria-hidden="true">
+            <span><svg class="icon"><use href="#i-branch" /></svg>main</span>
+            <span class="status-ok"><svg class="icon"><use href="#i-check" /></svg>build passing</span>
+            <span class="status-end" id="editor-lang">TypeScript</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="stack" aria-labelledby="stack-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="stack-title">Technologies &amp; skills</h2>
+          <p class="section-lead">What I use to build, test and ship my projects.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter technologies by area">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All <span class="count"></span></button>
+          <button class="filter" type="button" data-filter="lang" aria-pressed="false">Languages <span class="count"></span></button>
+          <button class="filter" type="button" data-filter="back" aria-pressed="false">Backend &amp; data <span class="count"></span></button>
+          <button class="filter" type="button" data-filter="front" aria-pressed="false">Frontend <span class="count"></span></button>
+          <button class="filter" type="button" data-filter="ops" aria-pressed="false">Cloud &amp; DevOps <span class="count"></span></button>
+          <button class="filter" type="button" data-filter="test" aria-pressed="false">Testing &amp; quality <span class="count"></span></button>
+        </div>
+
+        <ul class="tech-grid stagger">
+          <li class="tech" data-cat="lang"><span class="tech-logo"><img src="assets/tech/java.svg" alt="" width="24" height="24" /></span>Java</li>
+          <li class="tech" data-cat="lang"><span class="tech-logo"><img src="assets/tech/typescript.svg" alt="" width="24" height="24" /></span>TypeScript</li>
+          <li class="tech" data-cat="lang"><span class="tech-logo"><img src="assets/tech/javascript.svg" alt="" width="24" height="24" /></span>JavaScript</li>
+          <li class="tech" data-cat="lang"><span class="tech-logo"><img src="assets/tech/python.svg" alt="" width="24" height="24" /></span>Python</li>
+          <li class="tech" data-cat="lang"><span class="tech-logo tech-logo--text" aria-hidden="true">SQL</span>SQL</li>
+          <li class="tech" data-cat="lang"><span class="tech-logo"><img src="assets/tech/cplusplus.svg" alt="" width="24" height="24" /></span>C / C++</li>
+          <li class="tech" data-cat="lang"><span class="tech-logo tech-logo--invert"><img src="assets/tech/bash.svg" alt="" width="24" height="24" /></span>Bash</li>
+
+          <li class="tech" data-cat="back"><span class="tech-logo"><img src="assets/tech/spring.svg" alt="" width="24" height="24" /></span>Spring Boot</li>
+          <li class="tech" data-cat="back"><span class="tech-logo"><img src="assets/tech/nestjs.svg" alt="" width="24" height="24" /></span>NestJS</li>
+          <li class="tech" data-cat="back"><span class="tech-logo"><img src="assets/tech/nodejs.svg" alt="" width="24" height="24" /></span>Node.js</li>
+          <li class="tech" data-cat="back"><span class="tech-logo tech-logo--invert"><img src="assets/tech/express.svg" alt="" width="24" height="24" /></span>Express</li>
+          <li class="tech" data-cat="back"><span class="tech-logo"><img src="assets/tech/swagger.svg" alt="" width="24" height="24" /></span>REST &amp; OpenAPI</li>
+          <li class="tech" data-cat="back"><span class="tech-logo"><img src="assets/tech/hibernate.svg" alt="" width="24" height="24" /></span>JPA / Hibernate</li>
+          <li class="tech" data-cat="back"><span class="tech-logo tech-logo--invert"><img src="assets/tech/prisma.svg" alt="" width="24" height="24" /></span>Prisma</li>
+          <li class="tech" data-cat="back"><span class="tech-logo tech-logo--invert"><img src="assets/tech/mysql.svg" alt="" width="24" height="24" /></span>MySQL</li>
+          <li class="tech" data-cat="back"><span class="tech-logo"><img src="assets/tech/mongodb.svg" alt="" width="24" height="24" /></span>MongoDB</li>
+          <li class="tech" data-cat="back"><span class="tech-logo"><img src="assets/tech/firebase.svg" alt="" width="24" height="24" /></span>Firebase Auth</li>
+
+          <li class="tech" data-cat="front"><span class="tech-logo"><img src="assets/tech/react.svg" alt="" width="24" height="24" /></span>React</li>
+          <li class="tech" data-cat="front"><span class="tech-logo"><img src="assets/tech/reactrouter.svg" alt="" width="24" height="24" /></span>React Router</li>
+          <li class="tech" data-cat="front"><span class="tech-logo"><img src="assets/tech/vitejs.svg" alt="" width="24" height="24" /></span>Vite</li>
+          <li class="tech" data-cat="front"><span class="tech-logo"><img src="assets/tech/tailwindcss.svg" alt="" width="24" height="24" /></span>Tailwind CSS</li>
+          <li class="tech" data-cat="front"><span class="tech-logo tech-logo--text" aria-hidden="true">RC</span>Recharts</li>
+          <li class="tech" data-cat="front"><span class="tech-logo"><img src="assets/tech/html5.svg" alt="" width="24" height="24" /></span>HTML5</li>
+          <li class="tech" data-cat="front"><span class="tech-logo"><img src="assets/tech/css3.svg" alt="" width="24" height="24" /></span>CSS3</li>
+
+          <li class="tech" data-cat="ops"><span class="tech-logo"><img src="assets/tech/docker.svg" alt="" width="24" height="24" /></span>Docker</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo"><img src="assets/tech/githubactions.svg" alt="" width="24" height="24" /></span>GitHub Actions</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo"><img src="assets/tech/git.svg" alt="" width="24" height="24" /></span>Git</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo tech-logo--invert"><img src="assets/tech/vercel.svg" alt="" width="24" height="24" /></span>Vercel</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo tech-logo--invert"><img src="assets/tech/amazonwebservices.svg" alt="" width="24" height="24" /></span>AWS</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo"><img src="assets/tech/azure.svg" alt="" width="24" height="24" /></span>Azure</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo"><img src="assets/tech/kubernetes.svg" alt="" width="24" height="24" /></span>Kubernetes</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo"><img src="assets/tech/maven.svg" alt="" width="24" height="24" /></span>Maven</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo"><img src="assets/tech/npm.svg" alt="" width="24" height="24" /></span>npm</li>
+          <li class="tech" data-cat="ops"><span class="tech-logo tech-logo--invert"><img src="assets/tech/linux.svg" alt="" width="24" height="24" /></span>Linux</li>
+
+          <li class="tech" data-cat="test"><span class="tech-logo"><img src="assets/tech/junit.svg" alt="" width="24" height="24" /></span>JUnit</li>
+          <li class="tech" data-cat="test"><span class="tech-logo tech-logo--text" aria-hidden="true">Mo</span>Mockito</li>
+          <li class="tech" data-cat="test"><span class="tech-logo"><img src="assets/tech/selenium.svg" alt="" width="24" height="24" /></span>Selenium</li>
+          <li class="tech" data-cat="test"><span class="tech-logo tech-logo--text" aria-hidden="true">JC</span>JaCoCo</li>
+          <li class="tech" data-cat="test"><span class="tech-logo"><img src="assets/tech/sonarqube.svg" alt="" width="24" height="24" /></span>SonarQube</li>
+          <li class="tech" data-cat="test"><span class="tech-logo tech-logo--invert"><img src="assets/tech/jest.svg" alt="" width="24" height="24" /></span>Jest</li>
+          <li class="tech" data-cat="test"><span class="tech-logo"><img src="assets/tech/vitest.svg" alt="" width="24" height="24" /></span>Vitest</li>
+          <li class="tech" data-cat="test"><span class="tech-logo"><img src="assets/tech/postman.svg" alt="" width="24" height="24" /></span>Postman</li>
+        </ul>
+
+        <div class="also-used reveal">
+          <p>Also worked with</p>
+          <ul>
+            <li><img src="assets/tech/angular.svg" alt="" width="16" height="16" />Angular</li>
+            <li><img src="assets/tech/php.svg" alt="" width="16" height="16" />PHP</li>
+            <li><img src="assets/tech/kotlin.svg" alt="" width="16" height="16" />Kotlin</li>
+            <li><img src="assets/tech/swift.svg" alt="" width="16" height="16" />Swift</li>
+            <li>Power BI</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="projects-title">Featured projects</h2>
+          <p class="section-lead">The four projects that best show how I work, from the API to the pipeline.</p>
+        </div>
+
+        <div class="projects">
+          <article class="project reveal" style="--hue: var(--hue-orange)">
+            <div class="project-info">
+              <div class="project-head">
+                <span class="app-icon"><svg class="icon"><use href="#i-activity" /></svg></span>
+                <div>
+                  <h3 class="project-title">CadenceLab</h3>
+                  <p class="project-kind"><span class="status-dot status-dot--running"></span>Bachelor's thesis, in
+                    progress</p>
+                </div>
+              </div>
+              <p class="project-desc">Multisport training-analysis platform for cycling, running, swimming, triathlon
+                and gym. It syncs automatically with Strava (OAuth and webhooks), imports .FIT, .GPX and .TCX files, and
+                runs its own analysis engine: training load, fitness and fatigue (CTL/ATL/TSB), heart-rate and power
+                zones and FTP estimation, with AI feedback from Gemini. Over 1,500 automated tests and CI/CD on
+                Vercel.</p>
+              <ul class="chips">
+                <li>NestJS</li>
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Prisma</li>
+                <li>MySQL</li>
+                <li>Firebase Auth</li>
+                <li>Gemini API</li>
+                <li>Vercel</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn--primary btn--sm" href="https://cadencelab-app.vercel.app" target="_blank"
+                  rel="noopener">Open live app <svg class="icon"><use href="#i-external" /></svg></a>
+              </div>
+            </div>
+            <div class="preview preview--chart" aria-hidden="true">
+              <div class="pv-head">
+                <span class="pv-title">Training load</span>
+                <span class="pv-legend"><i class="sw sw--a"></i>Fitness <i class="sw sw--b"></i>Fatigue</span>
+              </div>
+              <svg class="pv-chart" viewBox="0 0 300 120" preserveAspectRatio="none">
+                <path class="pv-area" d="M0,96 C40,92 60,82 100,79 S160,62 200,56 S262,40 300,30 L300,120 L0,120 Z" />
+                <path class="pv-line-a" d="M0,96 C40,92 60,82 100,79 S160,62 200,56 S262,40 300,30" />
+                <path class="pv-line-b" d="M0,86 C30,70 52,98 90,72 S140,42 172,64 S232,30 262,46 S292,36 300,40" />
+              </svg>
+              <div class="pv-bars">
+                <i style="--h: 45%"></i><i style="--h: 70%"></i><i style="--h: 30%"></i><i style="--h: 85%"></i><i
+                  style="--h: 55%"></i><i style="--h: 20%"></i><i style="--h: 95%"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal" style="--hue: var(--hue-violet)">
+            <div class="project-info">
+              <div class="project-head">
+                <span class="app-icon"><svg class="icon"><use href="#i-bag" /></svg></span>
+                <div>
+                  <h3 class="project-title">Stilnovo</h3>
+                  <p class="project-kind"><span class="status-dot"></span>Team project</p>
+                </div>
+              </div>
+              <p class="project-desc">Second-hand marketplace built as a team project. Spring Boot backend with an
+                OpenAPI-documented REST API, React/TypeScript SPA, MySQL, Docker, GitHub Actions CI/CD and a Gemini AI
+                assistant, deployed on a university server.</p>
+              <ul class="chips">
+                <li>Java 21</li>
+                <li>Spring Boot</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Zustand</li>
+                <li>MySQL</li>
+                <li>Docker</li>
+                <li>GitHub Actions</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn--primary btn--sm" href="https://github.com/raultejada24/stilnovo-application"
+                  target="_blank" rel="noopener"><svg class="icon"><use href="#i-github" /></svg>View on GitHub</a>
+                <button class="clone" type="button" title="Copy clone command"
+                  data-copy="git clone https://github.com/raultejada24/stilnovo-application.git"
+                  data-toast="Clone command copied">
+                  <span class="clone-cmd"><span class="clone-prompt">$</span> git clone stilnovo-application</span>
+                  <svg class="icon i-copy"><use href="#i-copy" /></svg>
+                  <svg class="icon i-check"><use href="#i-check" /></svg>
+                </button>
+              </div>
+            </div>
+            <div class="preview preview--shop" aria-hidden="true">
+              <div class="pv-search"><svg class="icon"><use href="#i-search" /></svg><span></span></div>
+              <div class="pv-products">
+                <div class="pv-product"><span class="pv-thumb"></span><span class="pv-text"></span><span
+                    class="pv-price">€24</span></div>
+                <div class="pv-product"><span class="pv-thumb"></span><span class="pv-text"></span><span
+                    class="pv-price">€60</span></div>
+                <div class="pv-product"><span class="pv-thumb"></span><span class="pv-text"></span><span
+                    class="pv-price">€15</span></div>
+              </div>
+              <div class="pv-bubble"><svg class="icon"><use href="#i-sparkle" /></svg><span></span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" style="--hue: var(--hue-green)">
+            <div class="project-info">
+              <div class="project-head">
+                <span class="app-icon"><svg class="icon"><use href="#i-bank" /></svg></span>
+                <div>
+                  <h3 class="project-title">BankingApp</h3>
+                  <p class="project-kind"><span class="status-dot"></span>Software quality</p>
+                </div>
+              </div>
+              <p class="project-desc">A robust CI/CD implementation focused on Software Quality Assurance. Demonstrates
+                automated testing pipelines (unit &amp; system tests), Docker containerization, and professional
+                collaborative development using GitHub Flow. Unit tests reach 100% coverage and four GitHub Actions
+                workflows deploy it to Azure.</p>
+              <ul class="chips">
+                <li>Java</li>
+                <li>Maven</li>
+                <li>JUnit</li>
+                <li>Mockito</li>
+                <li>Selenium</li>
+                <li>JaCoCo</li>
+                <li>SonarCloud</li>
+                <li>Docker</li>
+                <li>Azure</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn--primary btn--sm" href="https://github.com/raultejada24/bankingapp-sw-quality"
+                  target="_blank" rel="noopener"><svg class="icon"><use href="#i-github" /></svg>View on GitHub</a>
+                <button class="clone" type="button" title="Copy clone command"
+                  data-copy="git clone https://github.com/raultejada24/bankingapp-sw-quality.git"
+                  data-toast="Clone command copied">
+                  <span class="clone-cmd"><span class="clone-prompt">$</span> git clone bankingapp-sw-quality</span>
+                  <svg class="icon i-copy"><use href="#i-copy" /></svg>
+                  <svg class="icon i-check"><use href="#i-check" /></svg>
+                </button>
+              </div>
+            </div>
+            <div class="preview preview--ci" aria-hidden="true">
+              <ul class="pv-runs">
+                <li><svg class="icon"><use href="#i-check" /></svg>Commit<span>passed</span></li>
+                <li><svg class="icon"><use href="#i-check" /></svg>Pull request<span>passed</span></li>
+                <li><svg class="icon"><use href="#i-check" /></svg>Deploy to Azure<span>passed</span></li>
+                <li><svg class="icon"><use href="#i-check" /></svg>Nightly tests<span>passed</span></li>
+              </ul>
+              <div class="pv-coverage">
+                <span>Coverage</span>
+                <span class="pv-meter"><i></i></span>
+                <span>100%</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal" style="--hue: var(--hue-amber)">
+            <div class="project-info">
+              <div class="project-head">
+                <span class="app-icon"><svg class="icon"><use href="#i-bug" /></svg></span>
+                <div>
+                  <h3 class="project-title">FindBugs Modern Evolution</h3>
+                  <p class="project-kind"><span class="status-dot"></span>Re-engineering</p>
+                </div>
+              </div>
+              <p class="project-desc">A complete reengineering of the legacy FindBugs (v3.0.1) static analysis tool.
+                Upgraded to Java 21 with modular architecture, SOLID principles, AI-assisted vulnerability explanations,
+                and a dynamic Web Dashboard.</p>
+              <ul class="chips">
+                <li>Java 21</li>
+                <li>Static analysis</li>
+                <li>SOLID</li>
+                <li>AI-assisted</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn--primary btn--sm" href="https://github.com/raultejada24/findbugs-modern-evolution"
+                  target="_blank" rel="noopener"><svg class="icon"><use href="#i-github" /></svg>View on GitHub</a>
+                <button class="clone" type="button" title="Copy clone command"
+                  data-copy="git clone https://github.com/raultejada24/findbugs-modern-evolution.git"
+                  data-toast="Clone command copied">
+                  <span class="clone-cmd"><span class="clone-prompt">$</span> git clone findbugs-modern-evolution</span>
+                  <svg class="icon i-copy"><use href="#i-copy" /></svg>
+                  <svg class="icon i-check"><use href="#i-check" /></svg>
+                </button>
+              </div>
+            </div>
+            <div class="preview preview--code" aria-hidden="true">
+              <div class="pv-code">
+                <span class="pv-l"><i>41</i>User user = repository.find(id);</span>
+                <span class="pv-l pv-l--warn"><i>42</i>return user.getName();</span>
+                <span class="pv-l"><i>43</i>}</span>
+              </div>
+              <div class="pv-issue">
+                <svg class="icon"><use href="#i-bug" /></svg>
+                <div>
+                  <strong>Possible null dereference</strong>
+                  <span class="pv-ai"><svg class="icon"><use href="#i-sparkle" /></svg>AI explanation</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="more">
+          <h3 class="more-title reveal">More on GitHub</h3>
+          <ul class="repo-grid">
+            <li class="reveal" style="--d: 0">
+              <a class="repo" href="https://github.com/raultejada24/strava-dashboard" target="_blank" rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-repo" /></svg>
+                <span class="repo-name">Strava Dashboard</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">Self-hosted training dashboard for Strava activities: GPS maps, heart-rate
+                  zones, fitness tracking (CTL/ATL/TSB), personal records, and performance analysis. Runs fully
+                  local.</span>
+                <span class="repo-lang" style="--lang: #3178c6">TypeScript</span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: 1">
+              <a class="repo" href="https://github.com/raultejada24/linux-dev-automator" target="_blank" rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-repo" /></svg>
+                <span class="repo-name">Linux Dev Automator</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">A collection of advanced Bash scripts to automate development environment
+                  setup, system monitoring, and automated backups.</span>
+                <span class="repo-lang" style="--lang: #89e051">Bash</span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: 2">
+              <a class="repo" href="https://github.com/raultejada24/java-streams-data-analyzer" target="_blank"
+                rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-repo" /></svg>
+                <span class="repo-name">Java Streams Data Analyzer</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">A lightweight, dependency-free Java console application demonstrating modern
+                  Java 17+ features, including Records, Stream API, and File I/O.</span>
+                <span class="repo-lang" style="--lang: #b07219">Java</span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: 3">
+              <a class="repo" href="https://github.com/raultejada24/cryptography-algorithms" target="_blank"
+                rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-repo" /></svg>
+                <span class="repo-name">Cryptography Algorithms</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">Fundamental cryptographic algorithms (Caesar, Base64, Vigenère, XOR, and
+                  AES-128) implemented in Python.</span>
+                <span class="repo-lang" style="--lang: #3572a5">Python</span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: 4">
+              <a class="repo" href="https://github.com/raultejada24/aula-virtual-project" target="_blank"
+                rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-repo" /></svg>
+                <span class="repo-name">ProyectoAulaVirtual</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">Educational web platform for subject management and student doubt resolution
+                  with a modern interface.</span>
+                <span class="repo-lang" style="--lang: #f1e05a">JavaScript</span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: 5">
+              <a class="repo" href="https://github.com/raultejada24/self-order-burger-kiosk" target="_blank"
+                rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-repo" /></svg>
+                <span class="repo-name">SelfOrderBurgerKiosk</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">Self-service order simulator for fast food restaurants. Developed in Java using
+                  OOP and design patterns.</span>
+                <span class="repo-lang" style="--lang: #b07219">Java</span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: 6">
+              <a class="repo" href="https://github.com/raultejada24/shadow-clash-java-game" target="_blank"
+                rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-repo" /></svg>
+                <span class="repo-name">ShadowClash-JavaGame</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">Tactical fighting game in a dark fantasy world, where legendary creatures face
+                  off in strategic duels.</span>
+                <span class="repo-lang" style="--lang: #b07219">Java</span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: 7">
+              <a class="repo repo--all" href="https://github.com/raultejada24?tab=repositories" target="_blank"
+                rel="noopener">
+                <svg class="icon repo-icon"><use href="#i-github" /></svg>
+                <span class="repo-name">View all GitHub projects</span>
+                <svg class="icon repo-arrow"><use href="#i-external" /></svg>
+                <span class="repo-desc">Every repository, including coursework and experiments.</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="why-me" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="why-title">Why me?</h2>
+          <p class="section-lead">How I work and what I bring to a team.</p>
+        </div>
+        <div class="terminal reveal" id="why-suite">
+          <div class="terminal-bar">
+            <svg class="icon"><use href="#i-terminal" /></svg>
+            <span>raul@portfolio: ~/why-me</span>
+          </div>
+          <div class="terminal-body">
+            <p class="term-line"><span class="term-prompt">$</span> npm test raul.spec.ts</p>
+            <p class="term-line term-suite"><span class="term-badge">PASS</span><span>tests/<strong>raul.spec.ts</strong></span></p>
+            <p class="term-describe">describe(<span class="t-str">"Why hire Raúl"</span>)</p>
+            <ul class="tests">
+              <li class="test">
+                <span class="test-status" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                <div>
+                  <h3 class="test-name">Fast learner</h3>
+                  <p>Quick to adapt to new technologies and frameworks. Always eager to expand my skill set and stay
+                    updated with industry trends.</p>
+                </div>
+              </li>
+              <li class="test">
+                <span class="test-status" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                <div>
+                  <h3 class="test-name">International experience</h3>
+                  <p>Completed Erasmus in Germany, gaining cross-cultural communication skills and the ability to
+                    thrive in diverse environments.</p>
+                </div>
+              </li>
+              <li class="test">
+                <span class="test-status" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                <div>
+                  <h3 class="test-name">Problem solver</h3>
+                  <p>Strong analytical mindset with a passion for tackling complex challenges and delivering
+                    innovative solutions.</p>
+                </div>
+              </li>
+              <li class="test">
+                <span class="test-status" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                <div>
+                  <h3 class="test-name">Team player</h3>
+                  <p>Excellent collaboration skills, experienced with Git workflows, Agile methodologies, and working
+                    in multidisciplinary teams.</p>
+                </div>
+              </li>
+              <li class="test">
+                <span class="test-status" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                <div>
+                  <h3 class="test-name">Results-driven</h3>
+                  <p>Focused on delivering high-quality, scalable solutions. Committed to clean code practices and
+                    continuous improvement.</p>
+                </div>
+              </li>
+              <li class="test">
+                <span class="test-status" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                <div>
+                  <h3 class="test-name">Proactive &amp; curious</h3>
+                  <p>Self-motivated with a strong desire to learn independently. Actively seek challenges and
+                    opportunities to grow professionally.</p>
+                </div>
+              </li>
+            </ul>
+            <p class="term-summary"><strong>Tests:</strong> <span class="term-pass"><span class="tests-passed">6</span>
+                passed</span>, 6 total<span class="term-cursor" aria-hidden="true"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="education-title">Education &amp; journey</h2>
+          <p class="section-lead">Where I've been so far, and what comes next.</p>
+        </div>
+
+        <div class="pipeline reveal">
+          <div class="pipeline-head">
+            <span><svg class="icon"><use href="#i-branch" /></svg>raul / career</span>
+            <span class="pipeline-state"><span class="spinner" aria-hidden="true"></span>In progress</span>
+          </div>
+          <ol class="stages">
+            <li class="stage stage--done">
+              <span class="stage-icon"><svg class="icon"><use href="#i-check" /></svg></span>
+              <span class="visually-hidden">Done:</span>
+              <p class="stage-when">Sept 2023</p>
+              <h3 class="stage-title">Software Engineering</h3>
+              <p class="stage-meta">Started my degree at Universidad Rey Juan Carlos, Móstoles.</p>
+            </li>
+            <li class="stage stage--done">
+              <span class="stage-icon"><svg class="icon"><use href="#i-check" /></svg></span>
+              <span class="visually-hidden">Done:</span>
+              <p class="stage-when">Sept 2025 – Mar 2026</p>
+              <h3 class="stage-title">Erasmus student</h3>
+              <p class="stage-meta">Ruhr-Universität Bochum, Germany. Courses in English and German.</p>
+            </li>
+            <li class="stage stage--running">
+              <span class="stage-icon"><span class="spinner"></span></span>
+              <span class="visually-hidden">In progress:</span>
+              <p class="stage-when">2026 – 2027</p>
+              <h3 class="stage-title">Bachelor's thesis</h3>
+              <p class="stage-meta">Building CadenceLab, a multisport training-analysis platform.</p>
+            </li>
+            <li class="stage stage--next">
+              <span class="stage-icon"><svg class="icon"><use href="#i-arrow" /></svg></span>
+              <span class="visually-hidden">Next:</span>
+              <p class="stage-when">Feb – Jul 2027</p>
+              <h3 class="stage-title">Internship</h3>
+              <p class="stage-meta">With a university agreement. On-site, hybrid or remote.</p>
+            </li>
+            <li class="stage stage--queued">
+              <span class="stage-icon"></span>
+              <span class="visually-hidden">Planned:</span>
+              <p class="stage-when">Jul 2027</p>
+              <h3 class="stage-title">Graduation</h3>
+              <p class="stage-meta">Bachelor's degree in Software Engineering.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card reveal">
+            <h3 class="info-title">Languages</h3>
+            <ul class="langs">
+              <li>
+                <div class="lang-row"><strong>Spanish</strong><span>Native</span></div>
+                <span class="cefr" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i
+                    class="on"></i><i class="on"></i><i class="on"></i></span>
+              </li>
+              <li>
+                <div class="lang-row"><strong>English</strong><span>C1, LanguageCert</span></div>
+                <span class="cefr" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i
+                    class="on"></i><i class="on"></i><i></i></span>
+              </li>
+              <li>
+                <div class="lang-row"><strong>German</strong><span>B1, Goethe-Institut</span></div>
+                <span class="cefr" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+              </li>
+            </ul>
+            <p class="cefr-scale" aria-hidden="true"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span></p>
+          </div>
+          <div class="info-card reveal" style="--d: 1">
+            <h3 class="info-title">Also</h3>
+            <ul class="extras">
+              <li><svg class="icon"><use href="#i-calendar" /></svg>Attended AWS Summit Madrid 2026</li>
+              <li><svg class="icon"><use href="#i-repo" /></svg>German course at the Goethe-Institut, Austria</li>
+              <li><svg class="icon"><use href="#i-heart" /></svg>Volunteer with Scouts de Madrid</li>
+              <li><svg class="icon"><use href="#i-sail" /></svg>PER skipper licence with sailing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <h2 class="contact-title" id="contact-title">Let's connect!</h2>
+          <p class="contact-lead">Have an idea, proposal, or just want to connect? I'm open to new opportunities,
+            collaborations, and talking about technology, development, or any interesting project.</p>
+
+          <div class="email-row">
+            <a class="email-link" href="mailto:r.tejada.2023@alumnos.urjc.es">
+              <svg class="icon"><use href="#i-mail" /></svg>r.tejada.2023@alumnos.urjc.es
+            </a>
+            <button class="copy-btn copy-btn--lg" type="button" data-copy="r.tejada.2023@alumnos.urjc.es">
+              <svg class="icon i-copy"><use href="#i-copy" /></svg>
+              <svg class="icon i-check"><use href="#i-check" /></svg>
+              <span class="copy-label">Copy email</span>
+            </button>
+          </div>
+
+          <div class="contact-links">
+            <a class="link-card" href="https://www.linkedin.com/in/raultejadamerinero/" target="_blank" rel="noopener">
+              <svg class="icon link-card-icon"><use href="#i-linkedin" /></svg>
+              <span><strong>LinkedIn</strong><small>/raultejadamerinero</small></span>
+              <svg class="icon link-card-arrow"><use href="#i-external" /></svg>
+            </a>
+            <a class="link-card" href="https://github.com/raultejada24" target="_blank" rel="noopener">
+              <svg class="icon link-card-icon"><use href="#i-github" /></svg>
+              <span><strong>GitHub</strong><small>/raultejada24</small></span>
+              <svg class="icon link-card-arrow"><use href="#i-external" /></svg>
+            </a>
+            <a class="link-card" href="cves.pdf" download="Raul_Tejada_Merinero_CV_ES.pdf">
+              <svg class="icon link-card-icon"><use href="#i-download" /></svg>
+              <span><strong>Descargar CV</strong><small>Español, PDF</small></span>
+            </a>
+            <a class="link-card" href="cven.pdf" download="Raul_Tejada_Merinero_CV_EN.pdf">
+              <svg class="icon link-card-icon"><use href="#i-download" /></svg>
+              <span><strong>Download CV</strong><small>English, PDF</small></span>
+            </a>
+          </div>
+
+          <div class="contact-foot">
+            <span><svg class="icon"><use href="#i-pin" /></svg>Madrid, Spain</span>
+            <span><span class="pulse" aria-hidden="true"></span>Available for internships from February 2027</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap statusbar">
+      <span><svg class="icon"><use href="#i-branch" /></svg>main</span>
+      <span class="status-ok"><svg class="icon"><use href="#i-check" /></svg>0 problems</span>
+      <span class="statusbar-end">© 2026 Raúl Tejada · All rights reserved</span>
+    </div>
   </footer>
 
+  <a class="to-top" id="to-top" href="#top" aria-label="Back to top">
+    <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="20" pathLength="100" />
+    </svg>
+    <svg class="icon"><use href="#i-arrow-up" /></svg>
+  </a>
+
+  <dialog class="palette" id="palette" aria-label="Command palette">
+    <div class="palette-search">
+      <svg class="icon"><use href="#i-search" /></svg>
+      <input id="palette-input" type="text" placeholder="Type a command or search…" autocomplete="off"
+        spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palette-list"
+        aria-autocomplete="list" aria-label="Search commands" />
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="palette-list" id="palette-list" role="listbox" aria-label="Commands"></ul>
+    <div class="palette-foot" aria-hidden="true">
+      <span><kbd>↑</kbd><kbd>↓</kbd> to navigate</span>
+      <span><kbd>↵</kbd> to run</span>
+    </div>
+  </dialog>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
   <script>
-    // Respect the OS "reduce motion" setting
+    const root = document.documentElement;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Custom Cursor
-    const cursorFollower = document.querySelector('.cursor-follower');
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      // Create trail effect
-      if (!reduceMotion && Math.random() > 0.8) {
-        createTrail(mouseX, mouseY);
-      }
-    });
-
-    function animateFollower() {
-      followerX += (mouseX - followerX) * 0.1;
-      followerY += (mouseY - followerY) * 0.1;
-
-      cursorFollower.style.left = followerX + 'px';
-      cursorFollower.style.top = followerY + 'px';
-
-      requestAnimationFrame(animateFollower);
-    }
-    if (!reduceMotion) animateFollower();
-
-    function createTrail(x, y) {
-      const trail = document.createElement('div');
-      trail.className = 'cursor-trail';
-      trail.style.left = x + 'px';
-      trail.style.top = y + 'px';
-      document.body.appendChild(trail);
-
-      setTimeout(() => trail.remove(), 500);
-    }
-
-    // Typing Effect
-    const typingText = document.getElementById('typing');
-    const text = 'Raúl Tejada';
-    let index = 0;
-
-    function type() {
-      if (index < text.length) {
-        typingText.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 150);
-      }
-    }
-
-    if (reduceMotion) {
-      typingText.textContent = text;
-    } else {
-      setTimeout(type, 500);
-    }
-
-    // Particles Animation
-    const canvas = document.getElementById('particles-canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-    const particleCount = 80;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.5 + 0.2;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-      }
-
-      draw() {
-        ctx.fillStyle = `rgba(0, 217, 255, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function init() {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            ctx.strokeStyle = `rgba(0, 255, 136, ${0.2 - distance / 500})`;
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      // With reduced motion, draw a single static frame
-      if (!reduceMotion) requestAnimationFrame(animate);
-    }
-
-    init();
-    animate();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particles.length = 0;
-      init();
-      if (reduceMotion) animate();
-    });
-
-    // Glow Effect following mouse
-    const glowEffect = document.getElementById('glow-effect');
-    let glowX = 0, glowY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      glowX = e.clientX - 300;
-      glowY = e.clientY - 300;
-      glowEffect.style.left = glowX + 'px';
-      glowEffect.style.top = glowY + 'px';
-    });
-
-    // Parallax effect and blur on scroll
-    if (!reduceMotion) {
-      window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        const parallaxElements = document.querySelectorAll('.hero-content');
-
-        // Blur effect on hero when scrolling - more gradual
-        const blurAmount = Math.min(scrolled / 300, 10);
-        const opacity = Math.max(1 - scrolled / 1200, 0.3);
-        hero.style.filter = `blur(${blurAmount}px)`;
-        hero.style.opacity = opacity;
-
-        parallaxElements.forEach(el => {
-          const speed = 0.5;
-          el.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-      });
-    }
-
-    // Scroll Animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
-
-    // Smooth scroll for navigation
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Copy email functionality for contact section
-    const contactCopyBtn = document.getElementById('contact-copy-email');
-
-    if (contactCopyBtn) {
-      contactCopyBtn.addEventListener('click', () => {
-        const email = 'r.tejada.2023@alumnos.urjc.es';
-        navigator.clipboard.writeText(email).then(() => {
-          const originalTitle = contactCopyBtn.querySelector('.btn-title').textContent;
-          contactCopyBtn.querySelector('.btn-title').textContent = 'Copied!';
-          contactCopyBtn.querySelector('.btn-title').style.color = 'var(--accent-green)';
-
-          setTimeout(() => {
-            contactCopyBtn.querySelector('.btn-title').textContent = originalTitle;
-            contactCopyBtn.querySelector('.btn-title').style.color = 'var(--text-primary)';
-          }, 2000);
-        });
-      });
-    }
-
-    // Copy email functionality
-    const copyEmailBtn = document.getElementById('copy-email');
-    const copyTooltip = document.getElementById('copy-tooltip');
-
-    if (copyEmailBtn) {
-      copyEmailBtn.addEventListener('click', () => {
-        const email = 'r.tejada.2023@alumnos.urjc.es';
-        navigator.clipboard.writeText(email).then(() => {
-          copyTooltip.classList.add('show');
-          setTimeout(() => {
-            copyTooltip.classList.remove('show');
-          }, 2000);
-        });
-      });
-    }
-
-    // Hide sidebar when reaching contact section
-    const contactSection = document.getElementById('contact');
-    const sidebar = document.getElementById('social-sidebar');
-
-    const sidebarObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          sidebar.classList.add('hidden');
-        } else {
-          sidebar.classList.remove('hidden');
-        }
-      });
-    }, { threshold: 0.5 });
-
-    if (contactSection && sidebar) {
-      sidebarObserver.observe(contactSection);
-    }
-
-    // Theme Toggle (Dark/Light Mode)
+    // Theme
     const themeToggle = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    function syncThemeLabel() {
+      const dark = root.dataset.theme === 'dark';
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    function toggleTheme() {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) { }
+      syncThemeLabel();
+    }
+    syncThemeLabel();
+    themeToggle.addEventListener('click', toggleTheme);
 
-    // Set initial theme
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-mode');
-      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    // Toast notifications (the container is the live region that announces them)
+    const toasts = document.getElementById('toasts');
+    function toast(message, kind = 'ok') {
+      const item = document.createElement('div');
+      item.className = `toast toast--${kind}`;
+      item.innerHTML = `<svg class="icon"><use href="#${kind === 'ok' ? 'i-check' : 'i-x'}" /></svg>`;
+      item.append(message);
+      toasts.append(item);
+      setTimeout(() => {
+        item.classList.add('is-leaving');
+        setTimeout(() => item.remove(), 300);
+      }, 2600);
     }
 
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      const isLightMode = document.body.classList.contains('light-mode');
-      localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-      themeToggle.innerHTML = isLightMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    });
+    // Typing effect on the hero name
+    const typedLive = document.querySelector('.typed-live');
+    if (typedLive && !reduceMotion) {
+      const fullName = typedLive.textContent;
+      typedLive.textContent = '';
+      let index = 0;
+      const typeNext = () => {
+        typedLive.textContent = fullName.slice(0, ++index);
+        if (index < fullName.length) setTimeout(typeNext, 95);
+      };
+      setTimeout(typeNext, 450);
+    }
 
-    // Scroll Progress Bar
-    const progressBar = document.getElementById('scroll-progress');
-    window.addEventListener('scroll', () => {
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = window.pageYOffset;
-      const progress = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 0;
-      progressBar.style.width = progress + '%';
-    });
-
-    // Disable cursor effects on mobile
-    const checkIfMobile = () => {
-      const isMobile = window.innerWidth <= 768 ||
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      if (isMobile) {
-        document.body.classList.add('mobile');
-      } else {
-        document.body.classList.remove('mobile');
+    // Copy email (navigator.clipboard is unavailable on file:// and plain http, so fall back to execCommand)
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
       }
-    };
+      const field = document.createElement('textarea');
+      field.value = text;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.select();
+      const ok = document.execCommand('copy');
+      field.remove();
+      if (!ok) throw new Error('Copy command was rejected');
+    }
 
-    checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
+    const EMAIL = 'r.tejada.2023@alumnos.urjc.es';
+    async function copyWithToast(text, successMessage) {
+      try {
+        await copyText(text);
+        toast(successMessage);
+        return true;
+      } catch (e) {
+        toast('Couldn’t copy. Select the text and copy it by hand.', 'error');
+        return false;
+      }
+    }
+
+    document.querySelectorAll('[data-copy]').forEach((button) => {
+      const label = button.querySelector('.copy-label');
+      const idleText = label ? label.textContent : '';
+      let resetTimer;
+      button.addEventListener('click', async () => {
+        clearTimeout(resetTimer);
+        const ok = await copyWithToast(button.dataset.copy, button.dataset.toast || 'Email copied to clipboard');
+        if (label) label.textContent = ok ? 'Copied!' : 'Couldn’t copy';
+        button.classList.toggle('is-copied', ok);
+        resetTimer = setTimeout(() => {
+          if (label) label.textContent = idleText;
+          button.classList.remove('is-copied');
+        }, 2000);
+      });
+    });
+
+    // Editor tabs in the hero (arrow keys move between tabs, as in the ARIA tabs pattern)
+    const editorTabs = [...document.querySelectorAll('.editor [role="tab"]')];
+    const editorLang = document.getElementById('editor-lang');
+    document.querySelectorAll('.editor-code').forEach((panel) => {
+      panel.querySelectorAll('.line').forEach((line, i) => line.style.setProperty('--ln', i));
+    });
+    function replayTyping(panel) {
+      if (reduceMotion) return;
+      panel.classList.remove('is-typing');
+      void panel.offsetWidth;
+      panel.classList.add('is-typing');
+    }
+    function selectTab(tab, moveFocus) {
+      editorTabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', String(active));
+        t.tabIndex = active ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !active;
+      });
+      editorLang.textContent = tab.dataset.lang;
+      replayTyping(document.getElementById(tab.getAttribute('aria-controls')));
+      if (moveFocus) tab.focus();
+    }
+    editorTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => { if (!tab.classList.contains('is-active')) selectTab(tab); });
+      tab.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        const step = e.key === 'ArrowRight' ? 1 : -1;
+        selectTab(editorTabs[(i + step + editorTabs.length) % editorTabs.length], true);
+      });
+    });
+    replayTyping(document.getElementById('panel-raul'));
+
+    // Technology filters
+    const techItems = [...document.querySelectorAll('.tech')];
+    const filterButtons = [...document.querySelectorAll('[data-filter]')];
+    techItems.forEach((item, i) => {
+      item.style.viewTransitionName = `tech-${i}`;
+      item.style.setProperty('--i', i);
+    });
+    filterButtons.forEach((button) => {
+      const category = button.dataset.filter;
+      const matches = (item) => category === 'all' || item.dataset.cat === category;
+      button.querySelector('.count').textContent = techItems.filter(matches).length;
+      button.addEventListener('click', () => {
+        const apply = () => {
+          filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+          techItems.forEach((item) => { item.hidden = !matches(item); });
+        };
+        if (document.startViewTransition && !reduceMotion) document.startViewTransition(apply);
+        else apply();
+      });
+    });
+
+    // Spotlight that follows the pointer on project cards
+    document.querySelectorAll('.project').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const box = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - box.left}px`);
+        card.style.setProperty('--my', `${e.clientY - box.top}px`);
+      });
+    });
+
+    // Reveal blocks as they scroll into view
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal, .stagger').forEach((el) => revealObserver.observe(el));
+
+    // "Why me" runs like a test suite: the markup is the passed state, so no-JS and reduced motion just show it
+    const suite = document.getElementById('why-suite');
+    if (suite && !reduceMotion) {
+      const tests = [...suite.querySelectorAll('.test')];
+      const badge = suite.querySelector('.term-badge');
+      const passedCount = suite.querySelector('.tests-passed');
+      suite.classList.add('is-running');
+      badge.textContent = 'RUNS';
+      passedCount.textContent = '0';
+      tests.forEach((test) => test.classList.add('is-pending'));
+
+      const runner = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        runner.disconnect();
+        tests.forEach((test, i) => {
+          setTimeout(() => {
+            test.classList.remove('is-pending');
+            passedCount.textContent = String(i + 1);
+            if (i === tests.length - 1) {
+              suite.classList.remove('is-running');
+              badge.textContent = 'PASS';
+            }
+          }, 600 + i * 380);
+        });
+      }, { threshold: 0.3 });
+      runner.observe(suite);
+    }
+
+    // Header state, reading progress and active section in the nav
+    const header = document.getElementById('site-header');
+    const progressBar = document.getElementById('progress-bar');
+    const toTop = document.getElementById('to-top');
+    const toTopRing = toTop.querySelector('circle');
+    let scrollTicking = false;
+    const onScroll = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      progressBar.style.transform = `scaleX(${progress})`;
+      toTopRing.style.strokeDashoffset = String(100 - progress * 100);
+      toTop.classList.toggle('is-shown', window.scrollY > window.innerHeight * 0.8);
+      scrollTicking = false;
+    };
+    onScroll();
+    window.addEventListener('scroll', () => {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(onScroll);
+    }, { passive: true });
+
+    const navLinks = new Map(
+      [...document.querySelectorAll('.site-nav a')].map((a) => [a.getAttribute('href').slice(1), a])
+    );
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link, id) => {
+          if (id === entry.target.id) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('main > section[id]').forEach((section) => spy.observe(section));
+
+    // Command palette (Ctrl/Cmd + K)
+    const palette = document.getElementById('palette');
+    const paletteInput = document.getElementById('palette-input');
+    const paletteList = document.getElementById('palette-list');
+    const isMac = /Mac|iPhone|iPad/.test(navigator.userAgent);
+    document.querySelectorAll('.cmd-kbd').forEach((kbd) => { kbd.textContent = isMac ? '⌘K' : 'Ctrl K'; });
+
+    const goTo = (id) => () => document.getElementById(id).scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+    const download = (href, name) => () => {
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = name;
+      link.click();
+    };
+    const openUrl = (url) => () => window.open(url, '_blank', 'noopener');
+    const commands = [
+      { group: 'Go to', label: 'Technologies & skills', hint: '#stack', icon: 'i-arrow', run: goTo('stack') },
+      { group: 'Go to', label: 'Featured projects', hint: '#projects', icon: 'i-arrow', run: goTo('projects') },
+      { group: 'Go to', label: 'Why me?', hint: '#why-me', icon: 'i-arrow', run: goTo('why-me') },
+      { group: 'Go to', label: 'Education & journey', hint: '#education', icon: 'i-arrow', run: goTo('education') },
+      { group: 'Go to', label: 'Contact', hint: '#contact', icon: 'i-arrow', run: goTo('contact') },
+      { group: 'Actions', label: 'Copy email address', hint: 'clipboard', icon: 'i-copy', run: () => copyWithToast(EMAIL, 'Email copied to clipboard') },
+      { group: 'Actions', label: 'Download CV (English)', hint: 'PDF', icon: 'i-download', run: download('cven.pdf', 'Raul_Tejada_Merinero_CV_EN.pdf') },
+      { group: 'Actions', label: 'Descargar CV (Español)', hint: 'PDF', icon: 'i-download', run: download('cves.pdf', 'Raul_Tejada_Merinero_CV_ES.pdf') },
+      { group: 'Actions', label: 'Toggle light / dark theme', hint: 'theme', icon: 'i-moon', run: toggleTheme },
+      { group: 'Links', label: 'Open GitHub profile', hint: 'github.com', icon: 'i-github', run: openUrl('https://github.com/raultejada24') },
+      { group: 'Links', label: 'Open LinkedIn profile', hint: 'linkedin.com', icon: 'i-linkedin', run: openUrl('https://www.linkedin.com/in/raultejadamerinero/') },
+      { group: 'Links', label: 'Open CadenceLab live app', hint: 'vercel.app', icon: 'i-external', run: openUrl('https://cadencelab-app.vercel.app') },
+    ];
+
+    const normalize = (text) => text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    let visibleCommands = [];
+    let activeIndex = 0;
+
+    function renderPalette() {
+      const words = normalize(paletteInput.value).split(/\s+/).filter(Boolean);
+      visibleCommands = commands.filter((cmd) => {
+        const haystack = normalize(`${cmd.group} ${cmd.label} ${cmd.hint}`);
+        return words.every((word) => haystack.includes(word));
+      });
+      activeIndex = Math.min(activeIndex, Math.max(visibleCommands.length - 1, 0));
+      paletteList.replaceChildren();
+
+      if (!visibleCommands.length) {
+        const empty = document.createElement('li');
+        empty.className = 'palette-empty';
+        empty.setAttribute('role', 'presentation');
+        empty.textContent = 'No commands match. Try “cv”, “email” or “projects”.';
+        paletteList.append(empty);
+        paletteInput.removeAttribute('aria-activedescendant');
+        return;
+      }
+
+      let lastGroup = '';
+      visibleCommands.forEach((cmd, i) => {
+        if (cmd.group !== lastGroup) {
+          lastGroup = cmd.group;
+          const heading = document.createElement('li');
+          heading.className = 'palette-group';
+          heading.setAttribute('role', 'presentation');
+          heading.setAttribute('aria-hidden', 'true');
+          heading.textContent = cmd.group;
+          paletteList.append(heading);
+        }
+        const option = document.createElement('li');
+        option.className = 'palette-option';
+        option.id = `cmd-${i}`;
+        option.setAttribute('role', 'option');
+        option.setAttribute('aria-selected', String(i === activeIndex));
+        option.innerHTML = `<svg class="icon"><use href="#${cmd.icon}" /></svg>`;
+        const label = document.createElement('span');
+        label.className = 'palette-label';
+        label.textContent = cmd.label;
+        const hint = document.createElement('span');
+        hint.className = 'palette-hint';
+        hint.textContent = cmd.hint;
+        option.append(label, hint);
+        option.addEventListener('pointermove', () => setActive(i));
+        option.addEventListener('click', () => runCommand(i));
+        paletteList.append(option);
+      });
+      paletteInput.setAttribute('aria-activedescendant', `cmd-${activeIndex}`);
+    }
+
+    function setActive(index) {
+      if (index === activeIndex) return;
+      activeIndex = index;
+      paletteList.querySelectorAll('[role="option"]').forEach((option, i) => {
+        option.setAttribute('aria-selected', String(i === activeIndex));
+      });
+      paletteInput.setAttribute('aria-activedescendant', `cmd-${activeIndex}`);
+      document.getElementById(`cmd-${activeIndex}`).scrollIntoView({ block: 'nearest' });
+    }
+
+    function runCommand(index) {
+      const cmd = visibleCommands[index];
+      if (!cmd) return;
+      palette.close();
+      requestAnimationFrame(() => cmd.run());
+    }
+
+    function openPalette() {
+      paletteInput.value = '';
+      activeIndex = 0;
+      renderPalette();
+      palette.showModal();
+      paletteInput.focus();
+    }
+
+    document.getElementById('palette-open').addEventListener('click', openPalette);
+    paletteInput.addEventListener('input', () => { activeIndex = 0; renderPalette(); });
+    paletteInput.addEventListener('keydown', (e) => {
+      if (!visibleCommands.length) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const step = e.key === 'ArrowDown' ? 1 : -1;
+        setActive((activeIndex + step + visibleCommands.length) % visibleCommands.length);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        runCommand(activeIndex);
+      }
+    });
+    palette.addEventListener('click', (e) => { if (e.target === palette) palette.close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        if (palette.open) palette.close();
+        else openPalette();
+      }
+    });
+
+    console.log(
+      '%c$ whoami%c\nRaúl Tejada, Software Engineering student at URJC.\nThis site is hand-written HTML, CSS and vanilla JS, no framework.\nLike what you see? r.tejada.2023@alumnos.urjc.es',
+      'color:#3ecf8e;font:600 14px monospace', 'color:inherit;font:13px monospace'
+    );
   </script>
 </body>
 
