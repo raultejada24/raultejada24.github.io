@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my projects, skills, and professional profile.
 
-## View Live
+## View Live Portfolio
 
 Visit: [https://raultejada24.github.io](https://raultejada24.github.io)
 
